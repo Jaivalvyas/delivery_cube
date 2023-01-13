@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,7 @@ export class RegistrationComponent {
   
 
   firstFormGroup = this._formBuilder.group({
-    profileImage: ['']
+    profileImage: ['' ,[Validators.required]]
     });  
 
   secondFormGroup = this._formBuilder.group({    
@@ -40,7 +41,7 @@ export class RegistrationComponent {
 
   hasUnitNumber = false;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder,private _snackBar:MatSnackBar) {}
 
   get firstName() { return this.secondFormGroup.get("firstName") }
   get lastName() { return this.secondFormGroup.get("lastName") }
@@ -54,7 +55,6 @@ export class RegistrationComponent {
   get password() { return this.fourthFormGroup.get("password"); }
   get confirmPassword() { return this.fourthFormGroup.get("confirmPassword"); }
 
-  // get address() { return this.profileForm.get("address") }
 
   onSubmit(): void {
     // this.regServ.storeData(this.userObject).subscribe({
@@ -65,10 +65,10 @@ export class RegistrationComponent {
 
 
     // console.log(this.profileForm.value);
-    // this._snackBar.open('Congrats!!You have submiited the form!!', 'success', {
-    //   duration: 5000,
-    //   panelClass: ['mat-toolbar', 'mat-primary']
-    // });
+    this._snackBar.open('Congrats!!You have submiited the form!!', 'success', {
+      duration: 5000,
+      panelClass: ['mat-toolbar', 'mat-primary']
+    });
     // this.profileForm.reset();
   }
 

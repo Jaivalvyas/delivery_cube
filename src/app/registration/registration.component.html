@@ -4,7 +4,10 @@
       <ng-template matStepLabel>Upload profile image</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Profile Upload</mat-label>
-        <input matInput placeholder="Upload image" formControlName="profileImage">
+        <input matInput placeholder="Upload image" formControlName="profileImage" required>
+        <mat-error *ngIf="firstName?.errors?.['required']">
+          Profile image  is required.
+        </mat-error>
       </mat-form-field>
       
       <div>
