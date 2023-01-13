@@ -44,7 +44,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatListModule,
     MatDialogModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@
       </mat-form-field>
       
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="accent" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -45,8 +45,8 @@
         </mat-error>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+        <button mat-stroked-button color="accent" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -105,8 +105,8 @@
         </mat-error>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="warn"  matStepperPrevious>Back</button>
+        <button mat-stroked-button color="accent" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -145,8 +145,8 @@
         </mat-error>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="warn"  matStepperPrevious>Back</button>
+        <button mat-stroked-button color="accent"  matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -154,9 +154,9 @@
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-      <button mat-button (click)="onSubmit()">Submit</button>
+      <button mat-stroked-button color="warn"  matStepperPrevious>Back</button>
+      <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>
