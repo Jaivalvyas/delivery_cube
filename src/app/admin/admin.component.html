@@ -1,0 +1,72 @@
+<h5><u><i>Login</i></u></h5>
+<form class="example-form" [formGroup]="loginForm" #logInForm="ngForm" (ngSubmit)="submit(logInForm)">
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" id="email" name="email" [(ngModel)]="login.email" required>
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email number is required.
+          </mat-error>
+          <mat-error *ngIf="email?.errors?.['pattern']">
+            This is not a valid email format.
+          </mat-error>
+      </mat-form-field>
+      
+      <br><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password" id="password" name="password" [(ngModel)]="login.password" required>
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required.
+          </mat-error>
+          <mat-error *ngIf="password?.errors?.['pattern']">
+            Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+            and a number.
+        </mat-error>
+      </mat-form-field><br><br>
+<button mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+<button color="warn" mat-button mat-raised-button type="reset">Reset</button>
+<span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>
+</form>
+
+<!-- 
+<p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Log In</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p>
+  <div class="logo">Fill the login form by providing your details</div>
+  <div>
+    <form #logInForm="ngForm" (ngSubmit)="submit(logInForm)">
+      <fieldset class="backcolor">
+        <mat-form-field appearance="fill">
+          <input
+            ngModel
+            matInput
+            placeholder="username"
+            type="text"
+            id="email"
+            name="email"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input
+            ngModel
+            matInput
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+          />
+        </mat-form-field>
+       
+        <button color="primary" mat-button mat-raised-button type="submit">
+          Submit
+        </button>
+        <button color="accent" mat-button mat-raised-button type="reset">
+          Reset
+        </button>
+      </fieldset>
+    </form>
+  </div> -->

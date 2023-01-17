@@ -29,5 +29,11 @@
   margin-top: 16px;
 }
 .mat-form-field{
-  padding-right: 10px;
+  padding-right: 15px;
+}
+button.mat-focus-indicator.mat-stepper-previous.mat-stroked-button.mat-button-base.mat-warn{
+  margin-right: 10px;
+}
+button.mat-raised-button{
+  margin-right: 10px;
 }

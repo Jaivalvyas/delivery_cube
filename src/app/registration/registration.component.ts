@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Address } from '../model/Address';
+import { User } from '../model/User';
+import { RegistrationService } from '../services/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,6 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegistrationComponent {
   
+  user:User={};
+
 
   firstFormGroup = this._formBuilder.group({
     profileImage: ['' ,[Validators.required]]
@@ -41,7 +46,7 @@ export class RegistrationComponent {
 
   hasUnitNumber = false;
 
-  constructor(private _formBuilder: FormBuilder,private _snackBar:MatSnackBar) {}
+  constructor(private _formBuilder: FormBuilder,private _snackBar:MatSnackBar, private registrationService:RegistrationService) {}
 
   get firstName() { return this.secondFormGroup.get("firstName") }
   get lastName() { return this.secondFormGroup.get("lastName") }
@@ -57,11 +62,11 @@ export class RegistrationComponent {
 
 
   onSubmit(): void {
-    // this.regServ.storeData(this.userObject).subscribe({
-    //   next(x) { alert("Data Added") },
-    //   error(errormsg) { },
-    //   complete() { alert("completed") }
-    // })
+    this.registrationService.saveUser(this.user).subscribe({
+      next(x) { alert("Data Added") },
+      error(errormsg) { },
+      complete() { alert("completed") }
+    })
 
 
     // console.log(this.profileForm.value);

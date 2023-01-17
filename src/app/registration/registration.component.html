@@ -4,7 +4,7 @@
       <ng-template matStepLabel>Upload profile image</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Profile Upload</mat-label>
-        <input matInput placeholder="Upload image" formControlName="profileImage" required>
+        <input matInput placeholder="Upload image" formControlName="profileImage" [(ngModel)]="user.profileImage" required>
         <mat-error *ngIf="firstName?.errors?.['required']">
           Profile image  is required.
         </mat-error>
@@ -20,7 +20,7 @@
       <ng-template matStepLabel>User Personal Details</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="First name" formControlName="firstName" required>
+        <input matInput placeholder="First name" formControlName="firstName" [(ngModel)]="user.firstName" required>
         <mat-error *ngIf="firstName?.errors?.['required']">
           First Name is required.
         </mat-error>
@@ -33,7 +33,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Last name" formControlName="lastName" required>
+        <input matInput placeholder="Last name" formControlName="lastName" [(ngModel)]="user.lastName" required>
         <mat-error *ngIf="lastName?.errors?.['required']">
           Last Name is required.
         </mat-error>
@@ -63,7 +63,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>City</mat-label>
-        <input matInput formControlName="city" placeholder="Ex. Raipur"
+        <input matInput formControlName="city" placeholder="Ex. Raipur" 
                required>
                <mat-error *ngIf="city?.errors?.['required']">
                 City is required.
@@ -71,7 +71,7 @@
       </mat-form-field><br>
       <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
-        <input matInput formControlName="state" placeholder="Ex. Chhattisgarh"
+        <input matInput formControlName="state" placeholder="Ex. Chhattisgarh" 
                required>
                <mat-error *ngIf="state?.errors?.['required']">
                 State is required.
@@ -79,7 +79,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Phone</mat-label>
-        <input matInput placeholder="Ex. 9xxxxxxxx" formControlName="phone" required>
+        <input matInput placeholder="Ex. 9xxxxxxxx" formControlName="phone" [(ngModel)]="user.phone" required >
         <mat-error *ngIf="phone?.errors?.['required']">
           Phone number is required.
         </mat-error>
@@ -95,7 +95,7 @@
       </mat-form-field><br>
       <mat-form-field appearance="fill">
         <mat-label>Zip</mat-label>
-        <input matInput formControlName="zip" placeholder="Ex. 492001"
+        <input matInput formControlName="zip" placeholder="Ex. 492001" 
                required>
         <mat-error *ngIf="zip?.errors?.['required']">
         Phone number is required.
@@ -115,7 +115,7 @@
       <ng-template matStepLabel>Fill Login Credentials</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="email" required>
+        <input matInput placeholder="Email" formControlName="email" [(ngModel)]="user.email" required>
         <mat-error *ngIf="email?.errors?.['required']">
           Email number is required.
           </mat-error>
@@ -125,7 +125,7 @@
       </mat-form-field><br>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="user.password" required>
         <mat-error *ngIf="password?.errors?.['required']">
           Password is required.
           </mat-error>
