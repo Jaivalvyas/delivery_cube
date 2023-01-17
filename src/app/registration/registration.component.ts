@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Address } from '../model/Address';
 import { User } from '../model/User';
+import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { RegistrationService } from '../services/registration.service';
 
 @Component({
@@ -46,7 +48,7 @@ export class RegistrationComponent {
 
   hasUnitNumber = false;
 
-  constructor(private _formBuilder: FormBuilder,private _snackBar:MatSnackBar, private registrationService:RegistrationService) {}
+  constructor( private dialogRef: MatDialogRef<NavigationBarComponent>,private _formBuilder: FormBuilder,private _snackBar:MatSnackBar, private registrationService:RegistrationService) {}
 
   get firstName() { return this.secondFormGroup.get("firstName") }
   get lastName() { return this.secondFormGroup.get("lastName") }
@@ -62,10 +64,11 @@ export class RegistrationComponent {
 
 
   onSubmit(): void {
+    this.dialogRef.close();
+
     this.registrationService.saveUser(this.user).subscribe({
       next(x) { alert("Data Added") },
       error(errormsg) { },
-      complete() { alert("completed") }
     })
 
 

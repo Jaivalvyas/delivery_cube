@@ -26,7 +26,6 @@ import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { OwnerComponent } from './owner/owner.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     RestaurantComponent,
     HomeComponent,
     UserComponent,
-    OwnerComponent,
     ForbiddenComponent 
   ],
   imports: [
