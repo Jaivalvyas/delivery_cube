@@ -27,6 +27,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     RestaurantComponent,
     HomeComponent,
     UserComponent,
-    ForbiddenComponent 
+    ForbiddenComponent,
+    AdminViewComponent 
   ],
   imports: [
     BrowserModule,

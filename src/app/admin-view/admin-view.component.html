@@ -1,0 +1,30 @@
+<p>admin-view works!</p>
+<h1>Our Cars</h1>
+<div class="grid-container">
+  <div  class="restarent" *ngFor="let restaurent of restaurents">
+    <div class="main">
+      <div class="card">
+        <div class="image">
+    <img
+      src="../../assets/{{ restaurent.restaurantName }}.jpeg"
+      style="width: 100%"
+    />
+  </div>
+    {{ restaurent.restaurantName }}
+    {{ restaurent.restaurantId }}
+    <div class="title">
+    <h1>{{ restaurent.rating }}</h1>
+    <h1>{{ restaurent.menuList.foodItemName }}</h1>
+    
+  
+  </div>
+  <div class="des">
+    <p>from {{ restaurent.location }}</p>
+    <button mat-raised-button color="accent">
+      <!-- <a routerLink="/admin/edit/{{ vehicle.vehicleID }}">edit Vehicle</a> -->
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
