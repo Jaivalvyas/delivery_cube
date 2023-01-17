@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Login } from '../model/Login';
 import { LoginService } from '../services/login.service';
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -37,15 +37,15 @@ submit(logInForm:any){
   this.loginService.login(this.loginForm.value).subscribe(
     (response)=>{
       this.respData=response;
-      console.log(this.respData.token);
-      const token = this.respData.token;
-      this.decoded = jwt_decode(token);
-      console.log(this.decoded);
+      // console.log(this.respData.token);
+      // const token = this.respData.token;
+      // this.decoded = jwt_decode(token);
+      // console.log(this.decoded);
       
-      this.getUsername = this.decoded.sub;
-      console.log(this.getUsername);
-      sessionStorage.setItem('username',this.respData.username);
-      localStorage.setItem('token',this.respData.token);
+      // this.getUsername = this.decoded.sub;
+      // console.log(this.getUsername);
+      // sessionStorage.setItem('username',this.respData.username);
+      // localStorage.setItem('token',this.respData.token);
       alert("login successful")        
       this.getSuccess = true;
       // this.router.navigateByUrl('/view')

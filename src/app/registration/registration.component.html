@@ -2,6 +2,7 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Upload profile image</ng-template>
+      <br>
       <mat-form-field appearance="fill">
         <mat-label>Profile Upload</mat-label>
         <input matInput placeholder="Upload image" formControlName="profileImage" [(ngModel)]="user.profileImage" required>
@@ -18,6 +19,7 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>User Personal Details</ng-template>
+      <br>
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
         <input matInput placeholder="First name" formControlName="firstName" [(ngModel)]="user.firstName" required>
@@ -53,6 +55,7 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Fill out your address</ng-template>
+      <br>
       <mat-form-field appearance="fill">
         <mat-label>Street</mat-label>
         <input matInput formControlName="street" placeholder="Ex. 1 Main St, New York, NY"
@@ -113,6 +116,7 @@
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Fill Login Credentials</ng-template>
+      <br>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" formControlName="email" [(ngModel)]="user.email" required>
@@ -152,6 +156,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
+    <br>
     <p>You are now done.</p>
     <div>
       <button mat-stroked-button color="warn"  matStepperPrevious>Back</button>

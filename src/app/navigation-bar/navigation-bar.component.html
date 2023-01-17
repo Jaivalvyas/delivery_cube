@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -21,7 +21,29 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>delivery_cube</span>
-    </mat-toolbar>
+    </mat-toolbar> -->
     <!-- Add Content Here -->
+    <mat-toolbar color="primary">    
+      <mat-toolbar-row>
+        <span>Delivery Cube</span>
+        <h2><a mat-button routerLink="/home">Home</a></h2>
+        <h2><a mat-button routerLink="/owner">AdminDashBoard</a></h2>
+        <h2><a mat-button routerLink="/user">UserDashBord</a></h2>
+
+        <span class="example-spacer"></span>
+         <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
+        <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
+
+        <a  mat-button *ngIf="!isLoggedIn()" (click)="openLoginDialog()"  color="accent"><mat-icon>login</mat-icon>
+        </a>
+        <button  *ngIf="isLoggedIn()"  mat-button color="warn" (click)="logOut()"><mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    
+<!--     
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+
+

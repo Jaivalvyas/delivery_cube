@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { RegistrationComponent } from '../registration/registration.component';
 import { LoginComponent } from '../login/login.component';
 import { AdminComponent } from '../admin/admin.component';
+import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
+import { AuthserviceService } from '../services/authservice.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -44,6 +47,25 @@ export class NavigationBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog) {}
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
 
+
+
+
+
+  public isLoggedIn(){
+    return this.authServ.isLoggedIn()
+  }
+
+  public logOut(){
+    this.authServ.clear();
+    this.router.navigate(["/home"])
+  }
+
+  rolebase(){
+    this.logInServ.roleMatch("Admin");
+  }
+  rolebase2(){
+    this.logInServ.roleMatch("User");
+  }
 }

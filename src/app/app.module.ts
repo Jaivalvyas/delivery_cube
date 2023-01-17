@@ -24,6 +24,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import { OwnerComponent } from './owner/owner.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     NavigationBarComponent,
     LoginComponent,
     AdminComponent,
-    RestaurantComponent 
+    RestaurantComponent,
+    HomeComponent,
+    UserComponent,
+    OwnerComponent,
+    ForbiddenComponent 
   ],
   imports: [
     BrowserModule,
