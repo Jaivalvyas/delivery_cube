@@ -1,0 +1,78 @@
+<div class="logo">Add the Restaurent by providing your details</div>
+<br>
+<div>
+  <form [formGroup]="restaurentForm" (ngSubmit)="onSubmit()">
+    <fieldset class="backcolor">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="restaurantId*"
+          type="number"
+          id="restaurantId"
+          name="restaurantId"
+          formControlName="restaurantId"
+        />
+        <mat-error *ngIf="restaurantId?.errors?.['required']">
+          Id is required.
+        </mat-error>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="restaurantName*"
+          type="text"
+          id="re"
+          name="vehicleName"
+          formControlName="restaurantName"
+        />
+        <mat-error *ngIf="restaurantName?.errors?.['required']">
+          restaurantName is required.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="location*"
+          type="text"
+          id="location"
+          name="location "
+          formControlName="location"
+        />
+        <mat-error *ngIf="location?.errors?.['required']">
+          location is required.
+        </mat-error>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="rating*"
+          type="number"
+          id="rating"
+          name="rating "
+          formControlName="rating"
+        />
+        <mat-error *ngIf="rating?.errors?.['required']">
+          rating is required.
+        </mat-error>
+      </mat-form-field>
+      <br /><br />
+
+      <button
+        color="primary"
+        mat-button
+        mat-raised-button
+        type="submit"
+        [disabled]="restaurentForm.invalid"
+      >
+        Submit
+      </button>
+      <button color="accent" mat-button mat-raised-button type="reset">
+        Reset
+      </button>
+    </fieldset>
+  </form>
+</div>

@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Restaurent } from '../model/Restaurent';
-import { User } from '../model/User';
-import { RestaurantComponent } from '../restaurant/restaurant.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +14,20 @@ export class AdminService {
   constructor(private HttpClient: HttpClient) { }
   fetchRestaurent(): Observable<Array<Restaurent>> {
     return this.HttpClient.get<Array<Restaurent>>("http://localhost:9000/api/v2/fetchAll")
+  }
+  
+  storeData(restaurent: Restaurent) {
+    return this.HttpClient.post("http://localhost:9000/api/v2/saveRestaurant", restaurent);
+  }
+   
+  URL:string="http://localhost:9000/api/v2/restaurantbyid"
+ UpdateURL="http://localhost:9000/api/v2/updateRestaurant"
+
+  getCurrentVehicle(restaurantId: number) {
+    return this.HttpClient.get(`${this.URL}/${restaurantId}`);
+  }
+  
+  updateVehicle(restaurantId: number,data:any) {
+    return this.HttpClient.put(`${this.UpdateURL}/${restaurantId}`,data);
   }
 }

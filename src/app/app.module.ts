@@ -28,6 +28,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
+import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
+import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     HomeComponent,
     UserComponent,
     ForbiddenComponent,
-    AdminViewComponent 
+    AdminViewComponent,
+    AddRestuarentComponent,
+    EditRestuarentComponent 
   ],
   imports: [
     BrowserModule,

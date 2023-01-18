@@ -5,8 +5,9 @@
     <div class="main">
       <div class="card">
         <div class="image">
+          <!-- {{ restaurent.restaurantName }} -->
     <img
-      src="../../assets/{{ restaurent.restaurantName }}.jpeg"
+      src="../../assets/Jaival.jpeg"
       style="width: 100%"
     />
   </div>
@@ -15,14 +16,17 @@
       {{ restaurent.restaurantName }}
       {{ restaurent.restaurantId }}
     <h1>{{ restaurent.rating }}</h1>
-    <h1>{{ restaurent.menuList }}</h1>
-    
-  
+    <div *ngFor=" let menu of restaurent?.menuList">
+      <h1>{{ menu.foodItemName }}</h1>
+    <h1>{{ menu.cuisine }}</h1>
+    <h1>{{ menu.price }}</h1>
+    </div>
   </div>
   <div class="des">
     <p>from {{ restaurent.location }}</p>
+    
     <button mat-raised-button color="accent">
-      <a routerLink="/admin/edit/{{ restaurent.restaurantId }}">add menu</a>
+      <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}">edit Vehicle</a>
     </button>
   </div>
 </div>

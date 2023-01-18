@@ -9,8 +9,7 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./admin-view.component.css']
 })
 export class AdminViewComponent implements OnInit {
-  restaurents:Restaurent[]=[]
-  menuList:MenuList[ ]=[]
+  restaurents:any
 
   constructor(private adminService:AdminService) { }
 
@@ -18,6 +17,7 @@ export class AdminViewComponent implements OnInit {
     this.adminService.fetchRestaurent().subscribe({
       next:restaurentData=>{
         this.restaurents=restaurentData;
+        console.log(restaurentData)
       },
       error:e=>{
         alert("Something went wrong try after sometime")

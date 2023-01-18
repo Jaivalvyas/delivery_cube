@@ -2,7 +2,7 @@
 <form class="example-form" [formGroup]="loginForm" #logInForm="ngForm" (ngSubmit)="submit(logInForm)">
     <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="email" ngModel="login.email" required>
+        <input matInput placeholder="Email" formControlName="email" required>
         <mat-error *ngIf="email?.errors?.['required']">
           Email number is required.
           </mat-error>
@@ -10,6 +10,23 @@
             This is not a valid email format.
           </mat-error>
       </mat-form-field><br><br>
+      
+
+ <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"  required>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="password?.errors?.['required']">
+      Password is required.
+      </mat-error>
+      <mat-error *ngIf="password?.errors?.['pattern']">
+        Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+        and a number.
+    </mat-error>
+  </mat-form-field>
+<!--       
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input matInput type="password" placeholder="Password" formControlName="password" ngModel="login.password" required>
@@ -20,7 +37,8 @@
             Password should have min 8 letter password, with at least a symbol, upper and lower case letters
             and a number.
         </mat-error>
-      </mat-form-field><br><br>
+      </mat-form-field><br><br> -->
+      <br><br>
 <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
 <button color="warn" mat-button mat-raised-button type="reset">Reset</button>
 <span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>

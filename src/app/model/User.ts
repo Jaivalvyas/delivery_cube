@@ -8,7 +8,11 @@ export class User {
     phone?:Number
     profileImage?:string
     role?:any
-    address?: Address
+    street?:string    
+    city?:string
+    state?:string
+    zip?:Number
+    
 
     constructor(){
         this.email = "";
@@ -18,10 +22,10 @@ export class User {
         this.phone = 0;
         this.profileImage = "";
         this.role="";
-        this.address = new Address();
-        this.address.street;
-        this.address.city;
-        this.address.state;
-        this.address.zip;
+        this.street = "";
+        this.city = "";
+        this.state = "";
+        this.zip = 0;
+      
     }
 }

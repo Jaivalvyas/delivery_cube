@@ -1,8 +1,8 @@
-export interface MenuList{
+export type MenuList={
     foodItemName?:string    
     cuisine?:string
     price?:number
     
 
-   
+    
 }
