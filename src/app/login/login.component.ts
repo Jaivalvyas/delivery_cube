@@ -16,64 +16,62 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent implements OnInit {
 
 
-  login:Login={};
-  respData:any;
-  decoded:any;
-  getUsername:any;
+  login: Login = {};
+  respData: any;
+  decoded: any;
+  getUsername: any;
 
-  getSuccess:boolean=false;
+  getSuccess: boolean = false;
 
-  constructor(private _formBuilder: FormBuilder, private loginService: LoginService, private route:Router,private authservice:AuthserviceService,
-    private dialogRef: MatDialogRef<NavigationBarComponent>,) 
-    
-   { }
+  constructor(private _formBuilder: FormBuilder, private loginService: LoginService, private route: Router, private authservice: AuthserviceService,
+    private dialogRef: MatDialogRef<NavigationBarComponent>,) { }
 
   get email() { return this.loginForm.get("email"); }
   get password() { return this.loginForm.get("password"); }
 
-  loginForm = this._formBuilder.group({    
+  loginForm = this._formBuilder.group({
     email: ['', [Validators.required, Validators.pattern("([a-zA-Z0-9]+)([\.{1}])?([a-zA-Z0-9]+)\@gmail([\.])com")]],
     password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
-    })
+  })
   ngOnInit(): void {
   }
 
 
-show: boolean= false;
-submit(logInForm:any): void {
-  this.dialogRef.close();
-  this.loginService.login(logInForm.value).subscribe(
-    (response: any) => {
+  show: boolean = false;
+  submit(logInForm: any): void {
+    this.dialogRef.close();
+    this.loginService.login(logInForm.value).subscribe(
+      (response: any) => {
 
-      console.log(response);
-      this.authservice.setRole(response.user.role);
-      this.authservice.setToken(response.jwtToken);
+        console.log(response);
+        this.authservice.setRole(response.user.role);
+        this.authservice.setToken(response.jwtToken);
 
-      this.authservice.setToken(response.jwtToken);
-      console.log(response.user.role);
+        this.authservice.setToken(response.jwtToken);
+        console.log(response.user.role);
 
-      const role = response.user.role;
-      if (role === "Admin") {
-        console.log(role);
-        
-        this.route.navigateByUrl("/admin");
-      } 
-      else if (role === "User") {
-        console.log(role);
-        this.route.navigate(["/user"]);
+        const role = response.user.role;
+        if (role === "Admin") {
+          console.log(role);
+
+          this.route.navigateByUrl("/admin");
+        }
+        else if (role === "User") {
+          console.log(role);
+          this.route.navigate(["/user"]);
+        }
+      },
+      (error) => {
+        alert("please enter valid Credentials");
       }
-    },
-    (error) => {
-      alert("please enter valid Credentials");
-    }
-  )
+    )
 
-}
-clear(){
-this.login.email ="";
-this.login.password = "";
-this.show = true;
-}
+  }
+  clear() {
+    this.login.email = "";
+    this.login.password = "";
+    this.show = true;
+  }
 }
 
 

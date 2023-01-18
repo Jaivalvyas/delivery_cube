@@ -8,28 +8,28 @@ import { AuthserviceService } from './authservice.service';
 })
 export class LoginService {
 
-  isLoginSuccess:boolean=false;
+  isLoginSuccess: boolean = false;
 
-  constructor(private http:HttpClient,private authServ:AuthserviceService) { }
+  constructor(private http: HttpClient, private authServ: AuthserviceService) { }
 
-  login(data: any):Observable<any>{
+  login(data: any): Observable<any> {
     this.isLoginSuccess = true;
-    return this.http.post(`http://localhost:9000/api/v1/login`,data);
+    return this.http.post(`http://localhost:9000/api/v1/login`, data);
   }
 
-  loggedIn(){
+  loggedIn() {
     return !!localStorage.getItem('token');
   }
 
-  loginAdmin(data: any):Observable<any>{
-    return this.http.post(`http://localhost:8082/api/v1/adminlogin`,data);
+  loginAdmin(data: any): Observable<any> {
+    return this.http.post(`http://localhost:8082/api/v1/adminlogin`, data);
   }
 
 
   public roleMatch(allowedRole: any): any {
     let isMatch = false;
     const role = this.authServ.getRole();
-    if (role != null && role) {
+    console.log(role);
       if (role === allowedRole) {
         isMatch = true;
         return isMatch;
@@ -37,5 +37,5 @@ export class LoginService {
         return isMatch;
       }
     }
-  }
+  
 }

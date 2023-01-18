@@ -29,7 +29,6 @@ import { UserComponent } from './user/user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -47,9 +47,10 @@ export class NavigationBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService, private logIn2:LoginService ) {}
 
-
+  ngOnInit(): void {
+  }
 
 
 
@@ -62,10 +63,9 @@ export class NavigationBarComponent {
     this.router.navigate(["/home"])
   }
 
-  rolebase(){
-    this.logInServ.roleMatch("Admin");
-  }
-  rolebase2(){
-    this.logInServ.roleMatch("User");
-  }
+ isAdmin:boolean=this.logInServ.roleMatch("Admin");
+ isUser:boolean=this.logInServ.roleMatch("User");
+
+ 
+
 }

@@ -1,5 +1,5 @@
 <p>admin-view works!</p>
-<h1>Our Cars</h1>
+<h1>Restaurent List</h1>
 <div class="grid-container">
   <div  class="restarent" *ngFor="let restaurent of restaurents">
     <div class="main">
@@ -10,18 +10,19 @@
       style="width: 100%"
     />
   </div>
-    {{ restaurent.restaurantName }}
-    {{ restaurent.restaurantId }}
+   
     <div class="title">
+      {{ restaurent.restaurantName }}
+      {{ restaurent.restaurantId }}
     <h1>{{ restaurent.rating }}</h1>
-    <h1>{{ restaurent.menuList.foodItemName }}</h1>
+    <h1>{{ restaurent.menuList }}</h1>
     
   
   </div>
   <div class="des">
     <p>from {{ restaurent.location }}</p>
     <button mat-raised-button color="accent">
-      <!-- <a routerLink="/admin/edit/{{ vehicle.vehicleID }}">edit Vehicle</a> -->
+      <a routerLink="/admin/edit/{{ restaurent.restaurantId }}">add menu</a>
     </button>
   </div>
 </div>
