@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { AdminComponent } from './admin/admin.component';
@@ -35,6 +36,9 @@ const routes: Routes = [
   }, 
   {
     path: 'edit-restaurant/:restaurantId', component: EditRestuarentComponent
+  }, 
+  {
+    path: 'add-menu/:restaurantId', component: AddMenuComponent
   }, 
   {
     path: 'admin', component: AdminComponent

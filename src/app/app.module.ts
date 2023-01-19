@@ -30,6 +30,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
 import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.component';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.compo
     ForbiddenComponent,
     AdminViewComponent,
     AddRestuarentComponent,
-    EditRestuarentComponent 
+    EditRestuarentComponent,
+    AddMenuComponent 
   ],
   imports: [
     BrowserModule,

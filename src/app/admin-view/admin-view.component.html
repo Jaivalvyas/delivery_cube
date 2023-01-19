@@ -15,7 +15,9 @@
     <div class="title">
       {{ restaurent.restaurantName }}
       {{ restaurent.restaurantId }}
-    <h1>{{ restaurent.rating }}</h1>
+    <h1>{{ restaurent.rating }}</h1>  
+      <p>from {{ restaurent.location }}</p>
+
     <div *ngFor=" let menu of restaurent?.menuList">
       <h1>{{ menu.foodItemName }}</h1>
     <h1>{{ menu.cuisine }}</h1>
@@ -23,10 +25,12 @@
     </div>
   </div>
   <div class="des">
-    <p>from {{ restaurent.location }}</p>
     
     <button mat-raised-button color="accent">
       <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}">edit Vehicle</a>
+    </button>
+    <button mat-raised-button color="accent">
+      <a routerLink="/add-menu/{{ restaurent.restaurantId }}">add Menu</a>
     </button>
   </div>
 </div>
