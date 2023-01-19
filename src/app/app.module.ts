@@ -31,6 +31,7 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
 import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
 import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AddMenuComponent } from './add-menu/add-menu.component';
     AdminViewComponent,
     AddRestuarentComponent,
     EditRestuarentComponent,
-    AddMenuComponent 
+    AddMenuComponent,
+    ViewMenuComponent 
   ],
   imports: [
     BrowserModule,

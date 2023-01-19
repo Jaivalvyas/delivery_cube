@@ -1,0 +1,38 @@
+<h1>Restaurent List</h1>
+<div *ngFor="let restaurent of restaurents">
+  <H1
+    >{{ restaurent.restaurantName }}
+    {{ restaurent.restaurantId }}
+    {{ restaurent.rating }}
+    from {{ restaurent.location }}</H1
+  >
+  <img src="../../assets/Jaival.jpeg" style="width: 100%" />
+
+  <mat-card-content>
+    <div *ngFor="let menu of restaurent?.menuList">
+        <!-- {{ menu.foodItemName }} -->
+
+        <div class="box">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title-group>
+                <img
+                  mat-card-lg-image
+                  src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                />
+                
+              </mat-card-title-group>
+
+
+              <mat-card-title>{{ menu.foodItemName }}</mat-card-title>
+                <mat-card-subtitle>{{ menu.cuisine }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ menu.price }}</mat-card-subtitle> 
+            </mat-card-header>
+
+            <button mat-button><mat-icon>delete</mat-icon></button>
+            <button mat-button><mat-icon>edit</mat-icon></button>
+          </mat-card>
+        </div>
+    </div></mat-card-content
+  >
+</div>

@@ -1,7 +1,8 @@
-<p>admin-view works!</p>
 <h1>Restaurent List</h1>
 <div class="grid-container">
   <div  class="restarent" *ngFor="let restaurent of restaurents">
+    <a routerLink="/view-menu/{{ restaurent.restaurantId }}">
+
     <div class="main">
       <div class="card">
         <div class="image">
@@ -17,12 +18,6 @@
       {{ restaurent.restaurantId }}
     <h1>{{ restaurent.rating }}</h1>  
       <p>from {{ restaurent.location }}</p>
-
-    <div *ngFor=" let menu of restaurent?.menuList">
-      <h1>{{ menu.foodItemName }}</h1>
-    <h1>{{ menu.cuisine }}</h1>
-    <h1>{{ menu.price }}</h1>
-    </div>
   </div>
   <div class="des">
     
@@ -35,5 +30,7 @@
   </div>
 </div>
 </div>
+    </a>
 </div>
+
 </div>

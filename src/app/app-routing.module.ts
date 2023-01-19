@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { OwnerComponent } from './owner/owner.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { UserComponent } from './user/user.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,9 @@ const routes: Routes = [
   }, 
   {
     path: 'add-menu/:restaurantId', component: AddMenuComponent
+  }, 
+  {
+    path: 'view-menu/:restaurantId', component: ViewMenuComponent
   }, 
   {
     path: 'admin', component: AdminComponent
