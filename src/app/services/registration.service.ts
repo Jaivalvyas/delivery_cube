@@ -9,7 +9,8 @@ import { User } from '../model/User';
 export class RegistrationService {
 
   user: User[] = [];
-
+  imageFormData: any;
+  
   constructor(private http: HttpClient) { }
 
   saveUser(user: User){
@@ -27,4 +28,10 @@ export class RegistrationService {
     //   return this.http.get<User>("http://localhost:9000/api/v2/userbyid"+"/"+email)
     // .pipe(map(response => response.role));
     // }
+
+
+  saveImage(imageFormData:any){
+    return this.http.post("http://localhost:9000/api/v2/upload/image",imageFormData)
+  }
+
   }
