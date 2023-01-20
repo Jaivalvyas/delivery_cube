@@ -26,3 +26,16 @@
     margin-bottom: 8px;
   }
  
+  .image>img{
+    padding-left: 100px;
+    width: 50%;
+    height: 300px;
+  }
+  .image>h1{
+    padding-left: 100px;
+    padding-top: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: cursive;
+  }

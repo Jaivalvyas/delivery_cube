@@ -1,34 +1,40 @@
 <h1>Restaurent List</h1>
 <div *ngFor="let restaurent of restaurents">
-  <H1
-    >{{ restaurent.restaurantName }}
-    {{ restaurent.restaurantId }}
-    {{ restaurent.rating }}
-    from {{ restaurent.location }}</H1
-  >
-  <img src="../../assets/Jaival.jpeg" style="width: 100%" />
-
+  <div class="image">
+     <img src="../../assets/Jaival.jpeg" />
+      <h1>{{ restaurent.restaurantName }} </h1 > 
+      <!-- <h1> {{ restaurent.restaurantId }}</h1>
+      <h1>{{ restaurent.rating }}</h1>
+      <h1> {{ restaurent.location }} </h1>   -->
+    
+  </div>
+  
+ 
   <mat-card-content>
     <div *ngFor="let menu of restaurent?.menuList">
         <!-- {{ menu.foodItemName }} -->
 
-        <div class="box">
+        <div >
           <mat-card class="example-card">
+            
             <mat-card-header>
-              <mat-card-title-group>
-                <img
-                  mat-card-lg-image
-                  src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                />
-                
-              </mat-card-title-group>
-
-
+              <!-- <mat-card-title-group >
+              </mat-card-title-group> -->
+              <img 
+              mat-card-lg-image
+              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            />
               <mat-card-title>{{ menu.foodItemName }}</mat-card-title>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga omnis alias consectetur qui, voluptatem molestiae velit dicta, hic ex atque quod dolorum perspiciatis perferendis nam veniam assumenda earum sequi eaque.</p>
-                <mat-card-subtitle>{{ menu.cuisine }}</mat-card-subtitle>
-                <mat-card-subtitle>{{ menu.price }}</mat-card-subtitle> 
+              <mat-card-subtitle>{{ menu.cuisine }}</mat-card-subtitle>
+              <mat-card-subtitle>{{ menu.price }}</mat-card-subtitle> 
+
+          
+             
             </mat-card-header>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eveniet temporibus maiores, corrupti officiis odio nesciunt non esse vel accusantium omnis alias harum ipsam delectus,
+                 nemo deserunt voluptate nostrum voluptatem ullam.</p>
 
             <button mat-button><mat-icon>delete</mat-icon></button>
             <button mat-button><mat-icon>edit</mat-icon></button>
