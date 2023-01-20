@@ -33,6 +33,7 @@ import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.compo
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
     EditRestuarentComponent,
     AddMenuComponent,
     ViewMenuComponent,
-    AddToCartComponent 
+    AddToCartComponent ,
+    ViewFavoriteComponent
+
   ],
   imports: [
     BrowserModule,

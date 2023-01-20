@@ -6,10 +6,17 @@ import { Injectable } from '@angular/core';
 export class AuthserviceService {
 
   constructor() { }
+  public setEmail(email:string){
+    localStorage.setItem("email",email);
+  }
+  public getEmail():any{
+    return localStorage.getItem("email");
+  }
 
   public setRole(role:string){
     localStorage.setItem("role",role);
   }
+
   public getRole():any{
     return localStorage.getItem("role");
   }

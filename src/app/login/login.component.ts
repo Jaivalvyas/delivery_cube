@@ -51,6 +51,10 @@ export class LoginComponent implements OnInit {
         this.authservice.setToken(response.jwtToken);
         console.log(response.user.role);
 
+        this.authservice.setEmail(response.user.email)
+        console.log(response.user.email);
+
+
         const role = response.user.role;
         if (role === "Admin") {
           console.log(role);

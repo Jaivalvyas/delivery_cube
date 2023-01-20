@@ -14,9 +14,8 @@ export class ViewMenuComponent implements OnInit {
 
 
   constructor(private adminService: AdminService, private router: ActivatedRoute, private _snackBar: MatSnackBar) { }
-
   ngOnInit(): void {
-    this.adminService.fetchRestaurent().subscribe({
+    this.adminService.getCurrentRestaurant(this.restId).subscribe({
       next: restaurentData => {
         this.restaurents = restaurentData;
 

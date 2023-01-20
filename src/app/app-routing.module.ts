@@ -12,8 +12,8 @@ import { OwnerComponent } from './owner/owner.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { UserComponent } from './user/user.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
-import { AddFavoriteComponent } from './add-favorite/add-favorite.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 
 const routes: Routes = [
   {
@@ -46,11 +46,12 @@ const routes: Routes = [
   {
     path: 'view-menu/:restaurantId', component: ViewMenuComponent
   },
+  
   {
-    path: 'add-favorite/:restaurantId', component: AddFavoriteComponent
+    path: 'view-favorite', component: ViewFavoriteComponent
   },
   {
-    path: 'add-cart/:restaurantId', component: AddToCartComponent
+    path: 'add-cart', component: AddToCartComponent
   },
   {
     path: 'admin', component: AdminComponent

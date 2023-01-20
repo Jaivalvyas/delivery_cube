@@ -1,4 +1,4 @@
-<h1>Restaurent List</h1>
+<h1> Favorite Restaurent List</h1>
 <div class="grid-container">
   <div class="restarent" *ngFor="let restaurent of restaurents">
       <div class="main">
@@ -15,25 +15,17 @@
             {{ restaurent.restaurantId }}
             <h1>{{ restaurent.rating }}</h1>
             <p>from {{ restaurent.location }}</p>
-            </a>
+        </a>
+
           </div>
           <div class="des">
-            <button mat-raised-button color="accent">
-              <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}"
-                >edit Vehicle</a
-              >
-            </button>
-            <button mat-raised-button color="accent">
-              <a routerLink="/add-menu/{{ restaurent.restaurantId }}"
-                >add Menu</a
-              >
-            </button>
+          
             <button
               mat-raised-button
               color="accent"
-              (click)="addFavorite(restaurent.restaurantId)"
+              (click)="deleteFavRestaurant(restaurent.restaurantId)"
             >
-              <mat-icon>favorite</mat-icon>
+              <mat-icon>delete</mat-icon>
             </button>
           </div>
         </div>
