@@ -9,21 +9,23 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./admin-view.component.css']
 })
 export class AdminViewComponent implements OnInit {
-  restaurents:any
+  restaurents: any
 
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.fetchRestaurent().subscribe({
-      next:restaurentData=>{
-        this.restaurents=restaurentData;
+      next: restaurentData => {
+        this.restaurents = restaurentData;
         console.log(restaurentData)
       },
-      error:e=>{
+      error: e => {
         alert("Something went wrong try after sometime")
       }
     })
   }
 
+  addFavorite(restaurantId: number) {
 
+  }
 }
