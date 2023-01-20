@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
-import { AdminViewComponent } from './admin-view/admin-view.component';
+import { AdminViewComponent } from './view-restaurant/admin-view.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -10,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { OwnerComponent } from './owner/owner.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { UserComponent } from './user/user.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 
 const routes: Routes = [
   {
@@ -32,13 +36,26 @@ const routes: Routes = [
   },
   {
     path: 'add-restaurant', component: AddRestuarentComponent
-  }, 
+  },
   {
     path: 'edit-restaurant/:restaurantId', component: EditRestuarentComponent
-  }, 
+  },
+  {
+    path: 'add-menu/:restaurantId', component: AddMenuComponent
+  },
+  {
+    path: 'view-menu/:restaurantId', component: ViewMenuComponent
+  },
+  
+  {
+    path: 'view-favorite', component: ViewFavoriteComponent
+  },
+  {
+    path: 'add-cart', component: AddToCartComponent
+  },
   {
     path: 'admin', component: AdminComponent
-    
+
   },
   {
     path: 'Forbidden', component: ForbiddenComponent

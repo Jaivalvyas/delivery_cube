@@ -27,9 +27,13 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { AdminViewComponent } from './admin-view/admin-view.component';
+import { AdminViewComponent } from './view-restaurant/admin-view.component';
 import { AddRestuarentComponent } from './add-restuarent/add-restuarent.component';
 import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.component';
+import { AddMenuComponent } from './add-menu/add-menu.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,12 @@ import { EditRestuarentComponent } from './edit-restuarent/edit-restuarent.compo
     ForbiddenComponent,
     AdminViewComponent,
     AddRestuarentComponent,
-    EditRestuarentComponent 
+    EditRestuarentComponent,
+    AddMenuComponent,
+    ViewMenuComponent,
+    AddToCartComponent ,
+    ViewFavoriteComponent
+
   ],
   imports: [
     BrowserModule,

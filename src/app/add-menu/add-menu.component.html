@@ -1,0 +1,63 @@
+<div class="logo">Add the Restaurent by providing your details</div>
+<br>
+<div>
+  <form [formGroup]="menuList" (ngSubmit)="onSubmit()">
+    <fieldset class="backcolor">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="foodItemName*"
+          type="text"
+          id="foodItemName"
+          name="foodItemName"
+          formControlName="foodItemName"
+        />
+        <mat-error *ngIf="foodItemName?.errors?.['required']">
+          FoodName is required.
+        </mat-error>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="cuisine*"
+          type="text"
+          id="cuisine"
+          name="cuisine"
+          formControlName="cuisine"
+        />
+        <mat-error *ngIf="cuisine?.errors?.['required']">
+          cuisine type is required.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <br />
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="price*"
+          type="text"
+          id="price"
+          name="price "
+          formControlName="price"
+        />
+        <mat-error *ngIf="price?.errors?.['required']">
+          price  is required.
+        </mat-error>
+      </mat-form-field>
+      <br /><br />
+     
+      <button
+        color="primary"
+        mat-button
+        mat-raised-button
+        type="submit"
+      >
+        Add Menu
+      </button>
+      <button color="accent" mat-button mat-raised-button type="reset">
+        Reset
+      </button>
+    </fieldset>
+  </form>
+</div>

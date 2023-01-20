@@ -1,0 +1,35 @@
+<h1> Favorite Restaurent List</h1>
+<div class="grid-container">
+  <div class="restarent" *ngFor="let restaurent of restaurents">
+      <div class="main">
+        <div class="card">
+          <div class="image">
+            <!-- {{ restaurent.restaurantName }} -->
+            <img src="../../assets/Jaival.jpeg" style="width: 100%" />
+          </div>
+
+          <div class="title">
+            <a routerLink="/view-menu/{{ restaurent.restaurantId }}">
+
+            {{ restaurent.restaurantName }}
+            {{ restaurent.restaurantId }}
+            <h1>{{ restaurent.rating }}</h1>
+            <p>from {{ restaurent.location }}</p>
+        </a>
+
+          </div>
+          <div class="des">
+          
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="deleteFavRestaurant(restaurent.restaurantId)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

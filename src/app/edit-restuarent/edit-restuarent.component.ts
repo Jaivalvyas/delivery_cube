@@ -11,44 +11,44 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./edit-restuarent.component.css']
 })
 export class EditRestuarentComponent implements OnInit {
-  restaurentForm!:FormGroup
-  restaurantObject:any;
-  
-  get restaurantId(){
+  restaurentForm!: FormGroup
+  restaurantObject: any;
+
+  get restaurantId() {
     return this.restaurentForm.get('restaurantId');
   }
-  get restaurantName(){
+  get restaurantName() {
     return this.restaurentForm.get('restaurantName');
   }
-  get location(){
+  get location() {
     return this.restaurentForm.get('location');
   }
-  get rating(){
+  get rating() {
     return this.restaurentForm.get('rating');
   }
 
-  constructor(private router:ActivatedRoute,private editServ:AdminService, private _snackBar:MatSnackBar) { }
+  constructor(private router: ActivatedRoute, private editServ: AdminService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.restaurentForm=new FormGroup({
+    this.restaurentForm = new FormGroup({
 
-      restaurantId:new FormControl('',[Validators.required]),
-      restaurantName:new FormControl('',[Validators.required]),
-      location:new FormControl('',[Validators.required]),
-      rating:new FormControl('',[Validators.required]),
+      restaurantId: new FormControl('', [Validators.required]),
+      restaurantName: new FormControl('', [Validators.required]),
+      location: new FormControl('', [Validators.required]),
+      rating: new FormControl('', [Validators.required]),
     }
-  
+
     );
 
     console.log(this.router.snapshot.params['restaurantId']);
-    this.editServ.getCurrentVehicle(this.router.snapshot.params['restaurantId'])
+    this.editServ.getCurrentRestaurant(this.router.snapshot.params['restaurantId'])
       .subscribe((result) => {
         this.restaurantObject = result;
         console.log(this.restaurantObject)
       });
   }
   onSubmit(): void {
-    this.editServ.updateVehicle(this.router.snapshot.params['restaurantId'], this.restaurantObject).subscribe({
+    this.editServ.updateRastaurant(this.router.snapshot.params['restaurantId'], this.restaurantObject).subscribe({
       next(x) { },
       error(errormsg) { },
     })

@@ -32,6 +32,9 @@
         <h2><a mat-button routerLink="/user"*ngIf="isUser">UserDashBord</a></h2>
 
         <span class="example-spacer"></span>
+        <a mat-button color="accent"routerLink="view-favorite" *ngIf="isLoggedIn()"><mat-icon>favorite</mat-icon></a>
+        <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
+
          <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
         <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
 
