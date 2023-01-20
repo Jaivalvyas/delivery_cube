@@ -34,4 +34,8 @@ export class AdminService {
   addMenuToRestaurant(menu:any,restaurantId:number){
     return this.HttpClient.post("http://localhost:9000/api/v2/restaurant/addMenu/"+restaurantId,menu)
   }
+
+  deleteMenu(restaurantId:number,foodItemName:string){
+    return this.HttpClient.delete("http://localhost:9000/api/v2//menuList/"+restaurantId+"/"+foodItemName);
+  }
 }

@@ -29,9 +29,7 @@
                 <mat-card-subtitle>{{ menu.cuisine }}</mat-card-subtitle>
                 <mat-card-subtitle>{{ menu.price }}</mat-card-subtitle> 
             </mat-card-header>
-
-            <button mat-button><mat-icon>delete</mat-icon></button>
-            <button mat-button><mat-icon>edit</mat-icon></button>
+            <button mat-button (click)="deletemenu(menu.foodItemName)"><mat-icon>delete</mat-icon></button>
           </mat-card>
         </div>
     </div></mat-card-content
