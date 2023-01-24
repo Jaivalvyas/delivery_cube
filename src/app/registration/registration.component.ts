@@ -16,11 +16,11 @@ import { RegistrationService } from '../services/registration.service';
 export class RegistrationComponent {
   
   user:User={};
-  
+  userImage:any = File;
 
 
   firstFormGroup = this._formBuilder.group({
-    profileImage: ['' ,[Validators.required]]
+    // profileImage: ['' ,[Validators.required]]
     });  
 
   secondFormGroup = this._formBuilder.group({    
@@ -66,10 +66,22 @@ export class RegistrationComponent {
   get confirmPassword() { return this.fourthFormGroup.get("confirmPassword"); }
 
 
+  onSelectFile(event:any){
+    const file = event.target.files[0];
+    this.userImage = file;
+    console.log(this.userImage)
+  }
+
   onSubmit(): void {
     this.dialogRef.close();
+    const userData = this.user;
+    const formData = new FormData();
+    console.log(userData);
 
-    this.registrationService.saveUser(this.user).subscribe({
+    formData.append('user',JSON.stringify(userData));
+    formData.append('file',this.userImage);
+    console.log(formData);
+    this.registrationService.saveUserProfile(formData).subscribe({
       next(x) { alert("Data Added") },
       error(errormsg) { },
     })
@@ -82,42 +94,6 @@ export class RegistrationComponent {
     });
     // this.profileForm.reset();
   }
-
-  uploadedImage: any;  
-  dbImage: any; 
-  postResponse: any;
-  successResponse: any;
-  image: any;
-
-  public onImageUpload(event:any) {    
-    this.uploadedImage = event.target.files[0];
-  }
-
-  imageUploadAction() {    
-    const imageFormData = new FormData();
-    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
-  
-
-    this.registrationService.saveImage(imageFormData).subscribe((response) => {
-        if (response === 200) { 
-          this.postResponse = response;                
-          this.successResponse = this.postResponse.body.message;
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!';
-        }
-      }
-      );
-    }
-
-    viewImage() {
-      this.httpClient.get('http://localhost:9000/get/image/info/' + this.image)
-        .subscribe(
-          res => {
-            this.postResponse = res;          
-            this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-          }
-        );
-    }
 
   mustMatchValidator(fg: AbstractControl) {
     const passwordValue = fg.get("password")?.value;

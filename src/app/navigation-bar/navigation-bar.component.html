@@ -35,13 +35,17 @@
         <a mat-button color="accent"routerLink="view-favorite" *ngIf="isLoggedIn()"><mat-icon>favorite</mat-icon></a>
         <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
 
-         <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
+        <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
         <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
 
         <a  mat-button *ngIf="!isLoggedIn()" (click)="openLoginDialog()"  color="accent"><mat-icon>login</mat-icon>
         </a>
         <button  *ngIf="isLoggedIn()"  mat-button color="warn" (click)="logOut()"><mat-icon>logout</mat-icon>
         </button>
+        <div *ngIf="isLoggedIn()">
+        <div class="logo-image" *ngIf=dbImage >
+          <img [src]="dbImage" class="img-fluid">
+        </div></div>
       </mat-toolbar-row>
     </mat-toolbar>
 

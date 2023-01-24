@@ -2,30 +2,13 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Upload profile image</ng-template>
+
       <br>
-      <mat-form-field appearance="fill">
-        <mat-label>Profile Upload</mat-label>
-        <input matInput placeholder="Upload image" formControlName="profileImage" [(ngModel)]="user.profileImage" required>
-        <mat-error *ngIf="firstName?.errors?.['required']">
-          Profile image  is required.
-        </mat-error>
         <div class="form-group">
-          <input type="file" (change)="onImageUpload($event)">
-          <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
-      </div>
-
-
-      <div>
-          <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
-      </div>
-
-      <div class="form-group">
-        <input type="text" id="image" placeholder="Search Image" [(ngModel)]="image" name="image" />
-        <input type="button" (click)="viewImage()" value="View Image" class="btn1">
-
-    </div>
-      </mat-form-field>
-      
+          <label for="file">Upload Profile Image</label>
+          <input type="file" class="form-control" accept="image/" (change)="onSelectFile($event)">
+        </div>
+      <br>
       <div>
         <button mat-stroked-button color="accent" matStepperNext>Next</button>
       </div>

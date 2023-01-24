@@ -9,6 +9,8 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
+import { RegistrationService } from '../services/registration.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -16,6 +18,10 @@ import { AuthserviceService } from '../services/authservice.service';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
+
+  email:any;
+  postResponse: any;
+  dbImage: any;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -47,15 +53,26 @@ export class NavigationBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService, private logIn2:LoginService ) {}
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
+    private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
+     private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
 
   ngOnInit(): void {
+    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail())
+    .subscribe(
+      res => {
+        this.postResponse = res;          
+        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+        console.log(this.email);
+      }
+    );
   }
 
-
+  
 
   public isLoggedIn(){
     return this.authServ.isLoggedIn()
+    
   }
 
   public logOut(){
@@ -66,6 +83,7 @@ export class NavigationBarComponent {
  isAdmin:boolean=this.logInServ.roleMatch("Admin");
  isUser:boolean=this.logInServ.roleMatch("User");
 
+ 
  
 
 }

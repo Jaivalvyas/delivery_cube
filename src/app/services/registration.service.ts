@@ -24,14 +24,9 @@ export class RegistrationService {
   fetchAllUser():Observable<Array<User>>{
     return this.http.get<Array<User>>("http://localhost:9000/api/v2/fetchUser")} 
 
-    // fetchUserById(email: String): Observable<User[]> {
-    //   return this.http.get<User>("http://localhost:9000/api/v2/userbyid"+"/"+email)
-    // .pipe(map(response => response.role));
-    // }
 
-
-  saveImage(imageFormData:any){
-    return this.http.post("http://localhost:9000/api/v2/upload/image",imageFormData)
-  }
+    saveUserProfile(formData:FormData):Observable<any>{
+      return this.http.post("http://localhost:9000/api/v2/saveUserProfile",formData);
+    }
 
   }
