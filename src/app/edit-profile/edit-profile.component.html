@@ -1,0 +1,123 @@
+<p>
+  <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <span>User Profile Form</span>
+      </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+<div class="logo">
+  Update your details
+</div>
+<div>
+  <form class="form" (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+      <fieldset class="backcolor">
+          <mat-form-field appearance="fill">
+              <input matInput placeholder="First Name" type="text" id="firstName" formControlName="firstName" [(ngModel)]="userObject.firstName"/>
+              <mat-error *ngIf="firstName?.errors?.['required']">
+                First Name is required.
+              </mat-error>
+              <mat-error *ngIf="firstName?.errors?.['minlength']">
+                Please enter atleast 3 characters.
+              </mat-error>
+              <mat-error *ngIf="firstName?.errors?.['maxlength']">
+                Can't extend more than 10 characters.
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+              <input matInput placeholder="Last Name" type="text" id="lastName" formControlName="lastName" [(ngModel)]="userObject.lastName" />
+              <mat-error *ngIf="lastName?.errors?.['required']">
+                Last Name is required.
+              </mat-error>
+              <mat-error *ngIf="lastName?.errors?.['minlength']">
+                Please enter atleast 3 characters.
+              </mat-error>
+              <mat-error *ngIf="lastName?.errors?.['maxlength']">
+                Can't extend more than 10 characters.
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" placeholder="Ex. 1 Main St, New York, NY" [(ngModel)]="userObject.street"
+                   required>
+                   <mat-error *ngIf="street?.errors?.['required']">
+                    Street is required.
+                  </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="Ex. Raipur" [(ngModel)]="userObject.city"
+                   required>
+                   <mat-error *ngIf="city?.errors?.['required']">
+                    City is required.
+                  </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" placeholder="Ex. Chhattisgarh" [(ngModel)]="userObject.state"
+                   required>
+                   <mat-error *ngIf="state?.errors?.['required']">
+                    State is required.
+                  </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Ex. 9xxxxxxxx" formControlName="phone" [(ngModel)]="userObject.phone" required >
+            <mat-error *ngIf="phone?.errors?.['required']">
+              Phone number is required.
+            </mat-error>
+            <mat-error *ngIf="phone?.errors?.['pattern']">
+              This is not a valid phone number (Start with 6/7/8/9).
+            </mat-error>
+            <mat-error *ngIf="phone?.errors?.['minlength']">
+              Minimum 8 digit is required.
+            </mat-error>
+            <mat-error *ngIf="phone?.errors?.['maxlength']">
+              Reached maximum limit.
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Zip</mat-label>
+            <input matInput formControlName="zip" placeholder="Ex. 492001" [(ngModel)]="userObject.zip"
+                   required>
+            <mat-error *ngIf="zip?.errors?.['required']">
+            Phone number is required.
+            </mat-error>
+            <mat-error *ngIf="zip?.errors?.['pattern']">
+              This is not a valid zip number.
+            </mat-error>
+          </mat-form-field>
+             
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="userObject.password" required>
+            <mat-error *ngIf="password?.errors?.['required']">
+              Password is required.
+              </mat-error>
+              <mat-error *ngIf="password?.errors?.['pattern']">
+                Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+                and a number.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">
+              Confirm Password is required.
+              </mat-error>
+              <mat-error *ngIf="profileForm.errors?.['mustMatch']===false">
+                Password and Confirm Password should match.
+            </mat-error>
+          </mat-form-field>
+
+         
+         
+
+         
+          <button color="accent" mat-button mat-raised-button type="reset">Reset</button>
+          <button color="primary" mat-button mat-raised-button 
+              type="submit" [disabled]="!profileForm.valid" >Submit</button>
+      </fieldset>
+  </form>
+</div>
+

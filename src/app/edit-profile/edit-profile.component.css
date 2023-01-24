@@ -1,0 +1,47 @@
+p{
+    margin:0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    margin-left: 12em;
+    width: 50%;
+    font-size: medium;
+    }
+  .backcolor{
+    background-color:aliceblue;
+  }
+  .logo {
+    margin-left:7em;
+    font: bold 1.7em cursive;
+    color:purple;   
+    padding-top:30px;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 0 40px; 
+    margin:15px;
+    font-size: large;
+  }
+  
+  .radio-group {
+    display: flex;
+    /* flex-direction: column; */
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .radio-button {
+    margin-right: 15px;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+
+  h4{
+    color:darkslategrey;
+  }

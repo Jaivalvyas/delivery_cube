@@ -34,6 +34,11 @@ import { AddMenuComponent } from './add-menu/add-menu.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -52,7 +57,9 @@ import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
     AddMenuComponent,
     ViewMenuComponent,
     AddToCartComponent ,
-    ViewFavoriteComponent
+    ViewFavoriteComponent,
+    EditProfileComponent,
+    
 
   ],
   imports: [
@@ -75,7 +82,8 @@ import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
     MatSnackBarModule,
     MatButtonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

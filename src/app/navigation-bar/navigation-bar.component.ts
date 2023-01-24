@@ -22,6 +22,8 @@ export class NavigationBarComponent {
   email:any;
   postResponse: any;
   dbImage: any;
+orderCounts: number=0;
+email=this.authServ.getEmail();
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -66,6 +68,7 @@ export class NavigationBarComponent {
         console.log(this.email);
       }
     );
+    
   }
 
   

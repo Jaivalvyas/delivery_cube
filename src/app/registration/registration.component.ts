@@ -95,6 +95,11 @@ export class RegistrationComponent {
     // this.profileForm.reset();
   }
 
+
+  
+
+   
+
   mustMatchValidator(fg: AbstractControl) {
     const passwordValue = fg.get("password")?.value;
     const confirmPasswordValue = fg.get("confirmPassword")?.value;

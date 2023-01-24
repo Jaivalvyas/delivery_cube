@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
     path: 'user', component: UserComponent
   }, {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'edit-profile/:email', component: EditProfileComponent
   },
   {
     path: 'admin-view', component: AdminViewComponent
