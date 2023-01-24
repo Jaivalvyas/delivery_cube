@@ -22,8 +22,7 @@ export class NavigationBarComponent {
   email:any;
   postResponse: any;
   dbImage: any;
-orderCounts: number=0;
-email=this.authServ.getEmail();
+  orderCounts: number=0;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -60,14 +59,11 @@ email=this.authServ.getEmail();
      private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
 
   ngOnInit(): void {
-    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail())
-    .subscribe(
+    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
       res => {
         this.postResponse = res;          
         this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-        console.log(this.email);
-      }
-    );
+      });
     
   }
 
