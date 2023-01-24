@@ -16,6 +16,8 @@ import { AuthserviceService } from '../services/authservice.service';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
+orderCounts: number=0;
+email=this.authServ.getEmail();
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -50,6 +52,7 @@ export class NavigationBarComponent {
   constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService, private logIn2:LoginService ) {}
 
   ngOnInit(): void {
+    
   }
 
 
