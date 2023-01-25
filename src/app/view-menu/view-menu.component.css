@@ -39,3 +39,17 @@
     font-size: 50px;
     font-family: cursive;
   }
+
+  .col-md-4 img{
+    height: fit-content;
+    border-radius: 4px;
+    
+  }
+  .col-md-4 img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+button{
+  background-color: accent;
+}
+

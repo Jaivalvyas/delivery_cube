@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from '../services/admin.service';
@@ -11,17 +13,22 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./view-menu.component.css']
 })
 export class ViewMenuComponent implements OnInit {
-
+  clicked=false;
   restaurents: any;
-  menuList:any;
+  menuList: any;
+  disableSelect = new FormControl(false);
 
+ 
+  counter: number = 0;
+  constructor( private adminService: AdminService, private router: ActivatedRoute, private _snackBar: MatSnackBar, private userService: UserService, private authService: AuthserviceService) { }
+  
 
-  constructor(private adminService: AdminService, private router: ActivatedRoute, private _snackBar: MatSnackBar, private userService: UserService, private authService: AuthserviceService) { }
+  
   ngOnInit(): void {
     this.adminService.getCurrentRestaurant(this.restId).subscribe({
       next: restaurentData => {
         this.restaurents = restaurentData;
-        this.menuList=this.restaurents.menu
+        this.menuList = this.restaurents.menu
 
         console.log(restaurentData)
 
@@ -30,6 +37,9 @@ export class ViewMenuComponent implements OnInit {
         alert("Something went wrong try after sometime")
       }
     });
+
+    
+    
   }
 
 
@@ -49,20 +59,19 @@ export class ViewMenuComponent implements OnInit {
 
   email = this.authService.getEmail();
 
-    
 
-        
 
-  addToCart(menu:any) {
+
+
+  addToCart(menu: any) {
     console.log(menu);
     console.log(this.email);
-    this.userService.addMenuToCart(menu,this.email).subscribe({
-      next(x)
-      {alert("menu  is  Added")},
-      error(errormsg){},
-    })
-   
-    
+    console.log(menu)
+    this.userService.addMenuToCart(menu, this.email).subscribe({
+      next(x) { alert("added to cart") },
+      error(errormsg) { alert("something goes wrong") },
+    });
+ 
     this._snackBar.open('Congrats!!You have submiited the form!!', 'success', {
       duration: 5000,
       panelClass: ['mat-toolbar', 'mat-primary']
@@ -70,9 +79,10 @@ export class ViewMenuComponent implements OnInit {
   }
 
 
-  }
-  
+
 
   
+}
+
 
 

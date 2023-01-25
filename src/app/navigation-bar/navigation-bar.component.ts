@@ -9,6 +9,7 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
+import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -49,9 +50,13 @@ email=this.authServ.getEmail();
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService, private logIn2:LoginService ) {}
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
+  orderCounter:number=0;
 
   ngOnInit(): void {
+    // this.orderCounter=this.addCart.products.length()
+    
+
     
   }
 
@@ -69,6 +74,9 @@ email=this.authServ.getEmail();
  isAdmin:boolean=this.logInServ.roleMatch("Admin");
  isUser:boolean=this.logInServ.roleMatch("User");
 
+
+ 
+ 
  
 
 }

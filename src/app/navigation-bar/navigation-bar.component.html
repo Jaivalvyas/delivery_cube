@@ -13,7 +13,8 @@
     >
     <a mat-button color="accent" routerLink="add-cart" *ngIf="isLoggedIn()"
       ><mat-icon>add_shopping_cart</mat-icon>
-      <div class="badge bg-danger">{{ orderCounts }}</div>
+      <div class="badge bg-danger">{{ orderCounter }}</div>
+
     </a>
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon color="accent">manage_accounts</mat-icon>
@@ -45,7 +46,3 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-
-<!--     
-  </mat-sidenav-content>
-</mat-sidenav-container> -->

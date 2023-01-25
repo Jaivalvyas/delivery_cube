@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Order } from '../model/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +41,14 @@ export class UserService {
 
   deleteMenuFromCart(email:string,foodItemName:string){
     return this.HttpClient.delete("http://localhost:9000/api/v3/menuList/"+email+"/"+foodItemName);
+  }
+  
+
+  // http://localhost:9000/api/v3/order/shubham@gmail.com
+  // http://localhost:9000/api/v3/saveOrder
+ 
+  postOrder(order:Order) {
+    return this.HttpClient.post("http://localhost:9000/api/v3/saveOrder",order)
   }
   
 
