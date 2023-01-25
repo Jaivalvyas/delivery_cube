@@ -9,7 +9,12 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
+<<<<<<< HEAD
 import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
+=======
+import { RegistrationService } from '../services/registration.service';
+import { HttpClient } from '@angular/common/http';
+>>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
 
 @Component({
   selector: 'app-navigation-bar',
@@ -17,8 +22,11 @@ import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
-orderCounts: number=0;
-email=this.authServ.getEmail();
+
+  email:any;
+  postResponse: any;
+  dbImage: any;
+  orderCounts: number=0;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -50,6 +58,7 @@ email=this.authServ.getEmail();
       shareReplay()
     );
 
+<<<<<<< HEAD
   constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
   orderCounter:number=0;
 
@@ -58,12 +67,27 @@ email=this.authServ.getEmail();
     
 
     
+=======
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
+    private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
+     private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
+
+  ngOnInit(): void {
+    if(this.isLoggedIn()){
+    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
+      res => {
+        this.postResponse = res;          
+        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+      });
+    }
+>>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
   }
 
-
+ 
 
   public isLoggedIn(){
     return this.authServ.isLoggedIn()
+    
   }
 
   public logOut(){
@@ -75,6 +99,7 @@ email=this.authServ.getEmail();
  isUser:boolean=this.logInServ.roleMatch("User");
 
 
+ 
  
  
  

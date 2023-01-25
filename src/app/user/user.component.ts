@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthserviceService } from '../services/authservice.service';
+import { RegistrationService } from '../services/registration.service';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+ 
+  
+  constructor(private httpClient: HttpClient, private regS:RegistrationService, private authServ:AuthserviceService) { }
 
   ngOnInit(): void {
   }
