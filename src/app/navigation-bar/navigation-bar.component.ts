@@ -59,15 +59,16 @@ export class NavigationBarComponent {
      private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
 
   ngOnInit(): void {
+    if(this.isLoggedIn()){
     this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
       res => {
         this.postResponse = res;          
         this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
       });
-    
+    }
   }
 
-  
+ 
 
   public isLoggedIn(){
     return this.authServ.isLoggedIn()
