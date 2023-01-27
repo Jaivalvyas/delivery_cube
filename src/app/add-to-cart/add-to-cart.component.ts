@@ -31,6 +31,7 @@ export class AddToCartComponent implements OnInit {
       .subscribe((res: any) => {
         this.products = res;
         console.log(this.products)
+        this.cartService.setProduct(this.products)
       });
 
 
@@ -50,7 +51,6 @@ export class AddToCartComponent implements OnInit {
 
     );
   }
-
 
   get restaurantId() {
     return this.orderForm.get('restaurantId');

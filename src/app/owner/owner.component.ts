@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-owner',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() {
+  }
   ngOnInit(): void {
   }
 
 }
+ 
+

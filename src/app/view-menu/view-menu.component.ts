@@ -19,7 +19,6 @@ export class ViewMenuComponent implements OnInit {
   disableSelect = new FormControl(false);
 
  
-  counter: number = 0;
   constructor( private adminService: AdminService, private router: ActivatedRoute, private _snackBar: MatSnackBar, private userService: UserService, private authService: AuthserviceService) { }
   
 
@@ -67,6 +66,7 @@ export class ViewMenuComponent implements OnInit {
     console.log(menu);
     console.log(this.email);
     console.log(menu)
+    this.userService.addToCart(menu)
     this.userService.addMenuToCart(menu, this.email).subscribe({
       next(x) { alert("added to cart") },
       error(errormsg) { alert("something goes wrong") },

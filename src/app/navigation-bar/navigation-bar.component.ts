@@ -9,12 +9,9 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
-<<<<<<< HEAD
-import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
-=======
 import { RegistrationService } from '../services/registration.service';
 import { HttpClient } from '@angular/common/http';
->>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -23,10 +20,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NavigationBarComponent {
 
-  email:any;
+  email: any;
   postResponse: any;
   dbImage: any;
-  orderCounts: number=0;
+  request: any;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -44,7 +41,7 @@ export class NavigationBarComponent {
     });
   }
 
-  openAdminDialog(){
+  openAdminDialog() {
     const dialogRef = this.dialog.open(AdminComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -58,50 +55,45 @@ export class NavigationBarComponent {
       shareReplay()
     );
 
-<<<<<<< HEAD
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
-  orderCounter:number=0;
+  constructor(private userService: UserService, private breakpointObserver: BreakpointObserver, public dialog: MatDialog,
+    private authServ: AuthserviceService, private router: Router, private logInServ: LoginService,
+    private httpClient: HttpClient) { }
+    cartItemsCounter: number = 0
 
   ngOnInit(): void {
-    // this.orderCounter=this.addCart.products.length()
-    
-
-    
-=======
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
-    private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
-     private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
-
-  ngOnInit(): void {
-    if(this.isLoggedIn()){
-    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
-      res => {
-        this.postResponse = res;          
-        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-      });
+    if (this.isLoggedIn()) {
+      this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
+        res => {
+          this.postResponse = res;
+          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+        });
     }
->>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
+    this.userService.getProducts().subscribe(responce=>{
+      this.cartItemsCounter=responce.length;
+     })
+     
   }
 
+counterFunction(){
  
+}
 
-  public isLoggedIn(){
+  public isLoggedIn() {
     return this.authServ.isLoggedIn()
-    
+
   }
 
-  public logOut(){
+  public logOut() {
     this.authServ.clear();
     this.router.navigate(["/home"])
   }
 
- isAdmin:boolean=this.logInServ.roleMatch("Admin");
- isUser:boolean=this.logInServ.roleMatch("User");
+  isAdmin: boolean = this.logInServ.roleMatch("Admin");
+  isUser: boolean = this.logInServ.roleMatch("User");
 
 
- 
- 
- 
- 
+
+
+  
 
 }

@@ -1,4 +1,4 @@
-<h1>{{email2}}</h1>
+<h1>{{ email2 }}</h1>
 <br /><br /><br /><ng-container *ngIf="products.length != 0">
   <div class="container">
     <div class="card-table">
@@ -40,37 +40,50 @@
                 {{ item.price * item.quantity }}
               </td>
               <td>
-                <button
-                  (click)="removeItem(item.foodItemName)"
-                  class="btn btn-danger"
-                >
-                  <mat-icon>delete</mat-icon>
-                </button>
+                <mat-icon (click)="removeItem(item.foodItemName)" color="warn">remove_shopping_cart
+                </mat-icon>
               </td>
             </tr>
-            <tr>
-              <td colspan="4"></td>
-              <td>
-                <strong>GrandTotal:</strong>
-              </td>
-              <td>
-                <strong
-                  ><span>{{
-                    grandGrandTotal() | currency : "INR" : true
-                  }}</span>
-                </strong>
-              </td>
-            </tr>
-            <td colspan="3"></td>
-            <td><button routerLink="/admin-view">Shop More</button></td>
-            <td><button (click)="orderCart()">Checkout</button></td>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-</ng-container>
 
+  <div class="container bg-light rounded-bottom py-4" id="zero-pad">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-10 col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <button
+              routerLink="/admin-view"
+              class="btn btn-sm bg-light border border-dark"
+            >
+              shop More
+            </button>
+          </div>
+          <div class="px-md-0 px-1" id="footer-font">
+            <b class="pl-md-4"
+              >SUBTOTAL : <span class="pl-md-4"
+                ><span>{{
+                   grandGrandTotal() | currency : "INR" : true
+                }}</span></span
+              ></b
+            >
+          </div>
+          <div>
+            <button
+              (click)="orderCart()"
+              class="btn btn-sm bg-dark text-white px-lg-5 px-3"
+            >
+              order Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
 
 <ng-container *ngIf="products.length == 0">
   <div class="container">
@@ -85,3 +98,4 @@
     </div>
   </div>
 </ng-container>
+

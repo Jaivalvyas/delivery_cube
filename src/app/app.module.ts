@@ -36,6 +36,7 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {MatSortModule} from '@angular/material/sort';
 
 
 
@@ -83,7 +84,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatButtonModule,
     HttpClientModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

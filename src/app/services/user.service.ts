@@ -7,7 +7,7 @@ import { Order } from '../model/Order';
   providedIn: 'root'
 })
 export class UserService {
- 
+
   constructor(private HttpClient: HttpClient) { }
 
 
@@ -17,10 +17,10 @@ export class UserService {
 
 
   addMenuToCart(menu: any, email: string) {
-    return this.HttpClient.post("http://localhost:9000/api/v3/cart/addMenu/"+email, menu)
+    return this.HttpClient.post("http://localhost:9000/api/v3/cart/addMenu/" + email, menu)
   }
 
-  
+
 
 
   URL: string = "http://localhost:9000/api/v3/favorite/restaurants"
@@ -34,22 +34,39 @@ export class UserService {
     return this.HttpClient.get(`${this.URL2}/${email}`);
   }
 
-  deleteRestaurantFromFavorites(email:string,restaurantId:number){
-    return this.HttpClient.delete("http://localhost:9000/api/v3/restaurantList/"+email+"/"+restaurantId);
+  deleteRestaurantFromFavorites(email: string, restaurantId: number) {
+    return this.HttpClient.delete("http://localhost:9000/api/v3/restaurantList/" + email + "/" + restaurantId);
   }
 
 
-  deleteMenuFromCart(email:string,foodItemName:string){
-    return this.HttpClient.delete("http://localhost:9000/api/v3/menuList/"+email+"/"+foodItemName);
+  deleteMenuFromCart(email: string, foodItemName: string) {
+    return this.HttpClient.delete("http://localhost:9000/api/v3/menuList/" + email + "/" + foodItemName);
   }
-  
+
 
   // http://localhost:9000/api/v3/order/shubham@gmail.com
   // http://localhost:9000/api/v3/saveOrder
- 
-  postOrder(order:Order) {
-    return this.HttpClient.post("http://localhost:9000/api/v3/saveOrder",order)
-  }
-  
 
+  postOrder(order: Order) {
+    return this.HttpClient.post("http://localhost:9000/api/v3/saveOrder", order)
+  }
+
+  public cartItemList: any = [];
+  public productList = new BehaviorSubject<any>([])
+  getProducts(){
+   return this.productList.asObservable();
+
+  }
+
+  setProduct(product:any){
+    this.cartItemList.push(...product);
+    this,this.productList.next(product);
+  }
+  addToCart(product:any){
+    this.cartItemList.push(product);
+    this.productList.next(this.cartItemList);
+    console.log(this.cartItemList);
+    
+    
+  }
 }
