@@ -9,8 +9,12 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
+<<<<<<< HEAD
+import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
+=======
 import { RegistrationService } from '../services/registration.service';
 import { HttpClient } from '@angular/common/http';
+>>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
 
 @Component({
   selector: 'app-navigation-bar',
@@ -54,6 +58,16 @@ export class NavigationBarComponent {
       shareReplay()
     );
 
+<<<<<<< HEAD
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,private authServ:AuthserviceService,private router:Router, private logInServ:LoginService ) {}
+  orderCounter:number=0;
+
+  ngOnInit(): void {
+    // this.orderCounter=this.addCart.products.length()
+    
+
+    
+=======
   constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
     private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
      private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient) {}
@@ -66,6 +80,7 @@ export class NavigationBarComponent {
         this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
       });
     }
+>>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
   }
 
  
@@ -83,6 +98,9 @@ export class NavigationBarComponent {
  isAdmin:boolean=this.logInServ.roleMatch("Admin");
  isUser:boolean=this.logInServ.roleMatch("User");
 
+
+ 
+ 
  
  
 

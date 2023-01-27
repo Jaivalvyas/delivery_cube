@@ -5,8 +5,10 @@
   {{ restaurents.rating }}
   from {{ restaurents.location }}
 </h2>
+<br><br>
 <img src="../../assets/Jaival.jpeg" style="width: 100%" />
 
+<h1 style="text-align: center;">MENU</h1>
 <mat-card-content>
   <div *ngFor="let menu of restaurents?.menuList">
 
@@ -31,7 +33,36 @@
           add To Cart
         </button>
       </mat-card>
+    <!-- {{ menu.foodItemName }} -->
+    <div class="card mb-3" style="max-width: 100%">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="../../assets/{{ menu.foodItemName }}.jpeg"
+            alt="{{ menu.foodItemName }}"
+            class="img-fluid rounded-start"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title">{{ menu.foodItemName }}</h1>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.
+            </p>
+              <h3 class="text-muted">{{ menu.cuisine }}</h3>
+              <h3 class="text-muted">{{ menu.price }}</h3>
+         
+            <button mat-button (click)="deletemenu(menu.foodItemName)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-button (click)="addToCart(menu)">add To Cart</button>
+            <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button> -->
+          </div>
+        </div>
+      </div>
     </div>
+   
   </div>
 </mat-card-content>
  -->
@@ -86,6 +117,8 @@
       </div>
     </div>
 </section>
+
+
 
 
 

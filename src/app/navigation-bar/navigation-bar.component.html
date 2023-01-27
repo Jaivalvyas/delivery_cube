@@ -13,7 +13,8 @@
     >
     <a mat-button color="accent" routerLink="add-cart" *ngIf="isLoggedIn()"
       ><mat-icon>add_shopping_cart</mat-icon>
-      <div class="badge bg-danger">{{ orderCounts }}</div>
+      <div class="badge bg-danger">{{ orderCounter }}</div>
+
     </a>
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon color="accent">manage_accounts</mat-icon>
@@ -32,6 +33,12 @@
       </button>
     </mat-menu>
 
+        <span class="example-spacer"></span>
+        <a mat-button color="accent"routerLink="view-favorite" *ngIf="isLoggedIn()"><mat-icon>favorite</mat-icon></a>
+        <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
+
+        <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
+        <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
 
         <a  mat-button *ngIf="!isLoggedIn()" (click)="openLoginDialog()"  color="accent"><mat-icon>login</mat-icon>
         </a>
@@ -46,3 +53,4 @@
 <!--     
   </mat-sidenav-content>
 </mat-sidenav-container> -->
+>>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c
