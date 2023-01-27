@@ -67,6 +67,7 @@ export class ViewMenuComponent implements OnInit {
     console.log(menu);
     console.log(this.email);
     console.log(menu)
+    this.userService.addToCart(menu);
     this.userService.addMenuToCart(menu, this.email).subscribe({
       next(x) { alert("added to cart") },
       error(errormsg) { alert("something goes wrong") },

@@ -67,7 +67,7 @@ export class AddToCartComponent implements OnInit {
 
 
   removeItem(foodItemName: any) {
-    console.log(this.email2)
+    console.log(this.email)
     console.log(foodItemName)
     this.cartService.deleteMenuFromCart(this.email2, foodItemName).subscribe((response: any) => {
       console.log(response);

@@ -13,19 +13,25 @@
     >
     <a mat-button color="accent" routerLink="add-cart" *ngIf="isLoggedIn()"
       ><mat-icon>add_shopping_cart</mat-icon>
-      <div class="badge bg-danger">{{ orderCounter }}</div>
-
+      <div class="badge bg-danger">{{ cartItemsCounter }}</div>
     </a>
-    <button mat-button [matMenuTriggerFor]="menu">
+   <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon color="accent">manage_accounts</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <a mat-button color="accent" (click)="openDialog()"
-          >New User?? Sign Up</a
-        >
+          >New User?? Sign Up</a>
+        
       </button>
       <button
+      mat-menu-item
+      *ngIf="isLoggedIn()"
+      routerLink="/UserProfile">
+      <a mat-button color="accent">Your Profile</a>
+    </button></mat-menu>
+
+      <!--<button
         mat-menu-item
         *ngIf="isLoggedIn()"
         routerLink="/UserProfile">
@@ -37,7 +43,7 @@
         <a mat-button color="accent"routerLink="view-favorite" *ngIf="isLoggedIn()"><mat-icon>favorite</mat-icon></a>
         <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
 
-        <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a>
+        <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a> -->
         <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
 
         <a  mat-button *ngIf="!isLoggedIn()" (click)="openLoginDialog()"  color="accent"><mat-icon>login</mat-icon>
@@ -48,9 +54,8 @@
         <div class="logo-image" *ngIf=dbImage >
           <img [src]="dbImage" class="img-fluid">
         </div>
-      </mat-toolbar-row>
-    </mat-toolbar>
+  </mat-toolbar-row>
+</mat-toolbar>
 <!--     
   </mat-sidenav-content>
 </mat-sidenav-container> -->
->>>>>>> 7fe2893477a9392cc7dc22469d5640c055d7b73c

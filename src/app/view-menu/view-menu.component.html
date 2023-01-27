@@ -33,7 +33,7 @@
           add To Cart
         </button>
       </mat-card>
-    <!-- {{ menu.foodItemName }} -->
+     {{ menu.foodItemName }} 
     <div class="card mb-3" style="max-width: 100%">
       <div class="row g-0">
         <div class="col-md-4">
@@ -57,7 +57,7 @@
               <mat-icon>delete</mat-icon>
             </button>
             <button mat-button (click)="addToCart(menu)">add To Cart</button>
-            <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button> -->
+             <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button> 
           </div>
         </div>
       </div>
@@ -108,6 +108,11 @@
                   <h2 class="text-uppercase">{{ menu.foodItemName }}</h2>
                   <h3>{{menu.cuisine}}</h3>
                   <h4 class="p-2 m-0">{{menu.price}}</h4>
+                  <button mat-button (click)="deletemenu(menu.foodItemName)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <button mat-button (click)="addToCart(menu)">add To Cart</button>
+                   <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button>  -->
               </div>
           </div>
           </div>
