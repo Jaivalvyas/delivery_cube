@@ -39,3 +39,29 @@
     font-size: 50px;
     font-family: cursive;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* ----------------------------------------- */
+
+  #about img
+{
+    /* border: 5px solid rgb(255, 176, 59); */
+    border-radius: 2px;
+}
+.section-padding{
+  padding: 60px 0px;
+}

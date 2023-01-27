@@ -36,6 +36,8 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -59,6 +61,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     AddToCartComponent ,
     ViewFavoriteComponent,
     EditProfileComponent,
+    UserProfileComponent,
+    FooterComponent,
     
 
   ],

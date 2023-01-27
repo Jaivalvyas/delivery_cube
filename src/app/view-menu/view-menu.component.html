@@ -1,4 +1,4 @@
-<h1>Restaurent List</h1>
+<!-- <h1>Restaurent List</h1>
 <h2>
   {{ restaurents.restaurantName }}
   {{ restaurents.restaurantId }}
@@ -9,7 +9,6 @@
 
 <mat-card-content>
   <div *ngFor="let menu of restaurents?.menuList">
-    <!-- {{ menu.foodItemName }} -->
 
     <div class="box">
       <mat-card class="example-card">
@@ -21,12 +20,7 @@
             />
           </mat-card-title-group>
           <mat-card-title>{{ menu.foodItemName }}</mat-card-title>
-          <!-- <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga omnis
-            alias consectetur qui, voluptatem molestiae velit dicta, hic ex
-            atque quod dolorum perspiciatis perferendis nam veniam assumenda
-            earum sequi eaque.
-          </p> -->
+          
           <mat-card-subtitle>{{ menu.cuisine }}</mat-card-subtitle>
           <mat-card-subtitle>{{ menu.price }}</mat-card-subtitle>
         </mat-card-header>
@@ -40,6 +34,58 @@
     </div>
   </div>
 </mat-card-content>
+ -->
+
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-12 text-center marb-35">
+        <h1 class="header-h">Delicious Journey</h1>
+        <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+          <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
+      </div> -->
+      <div class="col-md-5 col-sm-6">
+        <img src="../../assets/Jaival.jpeg" alt="" class="img-responsive">
+      </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="about-info">
+            <h2 class="heading">{{ restaurents.restaurantName }}</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo at beatae facilis sit illum, corporis delectus ipsa corrupti. A laborum dolor obcaecati animi aliquam odio saepe, quas repellendus perferendis dolorum.</p>
+            <div class="details-list">
+              <h3>{{restaurents.location}}</h3>
+              <h4>{{ restaurents.rating }}</h4>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div>
+          <h1>Available Menu</h1>
+        </div>
+          <div class="col-md-6 col-sm-6" *ngFor="let menu of restaurents?.menuList">
+            <div class="d-flex h-100">
+              <div class="flex-shrink-0">
+                  <img class="img-fluid" src="../../assets/Jaival.jpeg" alt="" style="width: 250px; height: 150px;">
+                  
+              </div>
+              <div class="d-flex flex-column justify-content-center text-start border-inner px-4">
+                  <h2 class="text-uppercase">{{ menu.foodItemName }}</h2>
+                  <h3>{{menu.cuisine}}</h3>
+                  <h4 class="p-2 m-0">{{menu.price}}</h4>
+              </div>
+          </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+
+          </div>
+      </div>
+    </div>
+</section>
 
 
 

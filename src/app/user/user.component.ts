@@ -10,10 +10,8 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class UserComponent implements OnInit {
  
-  
   constructor(private httpClient: HttpClient, private regS:RegistrationService, private authServ:AuthserviceService) { }
 
   ngOnInit(): void {
   }
-
 }

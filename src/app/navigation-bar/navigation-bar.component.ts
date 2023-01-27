@@ -71,8 +71,8 @@ export class NavigationBarComponent {
  
 
   public isLoggedIn(){
-    return this.authServ.isLoggedIn()
-    
+    this.email = this.authServ.getEmail();
+    return this.authServ.isLoggedIn()    
   }
 
   public logOut(){
