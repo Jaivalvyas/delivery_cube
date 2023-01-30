@@ -44,29 +44,51 @@ export class UserService {
   }
 
 
+  deleteCart(email: string) {
+    return this.HttpClient.delete("http://localhost:9000/api/v3/cart/" + email );
+  }
+
+ 
+
   // http://localhost:9000/api/v3/order/shubham@gmail.com
   // http://localhost:9000/api/v3/saveOrder
 
   postOrder(order: Order) {
     return this.HttpClient.post("http://localhost:9000/api/v3/saveOrder", order)
   }
+  getOrder(email:string){
+    return this.HttpClient.get("http://localhost:9000/api/v3/Order/" + email)
+  }
+
+  postCheckOut(CheckOutDetails: any) {
+    return this.HttpClient.post(" http://localhost:9000/api/v3/saveCheckOutDetails", CheckOutDetails)
+  }
+
 
   public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([])
+
   getProducts(){
    return this.productList.asObservable();
-
   }
 
   setProduct(product:any){
     this.cartItemList.push(...product);
-    this,this.productList.next(product);
+    this.productList.next(product);
   }
+
+  
   addToCart(product:any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-    console.log(this.cartItemList);
-    
-    
+    console.log(this.cartItemList);  
+    this.getTotalPrice();
   }
+
+    getTotalPrice(){
+      let grandtotal=0;
+      this.cartItemList.map((a:any)=>{
+        grandtotal+=a.total;
+      });
+    }
 }

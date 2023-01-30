@@ -9,9 +9,11 @@ import { AdminComponent } from '../admin/admin.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
+import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
 import { RegistrationService } from '../services/registration.service';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-navigation-bar',
@@ -23,7 +25,8 @@ export class NavigationBarComponent {
   email: any;
   postResponse: any;
   dbImage: any;
-  request: any;
+  orderCounts: number=0;
+  cartItemsCounter: any;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -54,46 +57,46 @@ export class NavigationBarComponent {
       map(result => result.matches),
       shareReplay()
     );
-
-  constructor(private userService: UserService, private breakpointObserver: BreakpointObserver, public dialog: MatDialog,
-    private authServ: AuthserviceService, private router: Router, private logInServ: LoginService,
-    private httpClient: HttpClient) { }
-    cartItemsCounter: number = 0
+    
+  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
+    private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
+     private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient,
+     private userService:UserService) {}
 
   ngOnInit(): void {
-    if (this.isLoggedIn()) {
-      this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
-        res => {
-          this.postResponse = res;
-          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-        });
+    if(this.isLoggedIn()){
+    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
+      res => {
+        this.postResponse = res;          
+        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+      });
     }
+
     this.userService.getProducts().subscribe(responce=>{
       this.cartItemsCounter=responce.length;
      })
-     
   }
 
 counterFunction(){
  
 }
 
-  public isLoggedIn() {
-    return this.authServ.isLoggedIn()
-
+  public isLoggedIn(){
+    this.email = this.authServ.getEmail();
+    return this.authServ.isLoggedIn()    
   }
 
   public logOut() {
+
     this.authServ.clear();
-    this.router.navigate(["/home"])
+    this.router.navigate(["/home"]);
+    window.location.reload();
+
   }
 
   isAdmin: boolean = this.logInServ.roleMatch("Admin");
   isUser: boolean = this.logInServ.roleMatch("User");
 
-
-
-
-  
+ 
 
 }

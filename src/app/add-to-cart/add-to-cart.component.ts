@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MenuList } from '../model/MenuList';
 import { Order } from '../model/Order';
-import { AdminService } from '../services/admin.service';
 import { AuthserviceService } from '../services/authservice.service';
 import { UserService } from '../services/user.service';
 
@@ -18,52 +15,27 @@ export class AddToCartComponent implements OnInit {
   totalValue: number = 0;
   public products: any = [];
   public grandTotal !: number;
-  orderForm!: FormGroup
-  orderObject:any
+  orderObject: any
+  orderToPlaced = new Order();
+  email2: any
 
-  constructor(private cartService: UserService, private authServices: AuthserviceService, private _snackBar: MatSnackBar) { }
+  constructor(private cartService: UserService, private authServices: AuthserviceService, private _snackBar: MatSnackBar) {
+    this.email2 = this.authServices.getEmail();
 
-  email2 = this.authServices.getEmail();
+  }
+
 
 
   ngOnInit(): void {
-    this.cartService.getCart(this.email2)
-      .subscribe((res: any) => {
-        this.products = res;
-        console.log(this.products)
-        this.cartService.setProduct(this.products)
-      });
+    
+    this.cartService.getProducts().subscribe(responce => {
+      this.products = responce;
+      
+    });
 
 
-    this.orderForm = new FormGroup({
-      restaurantId: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      menuList: new FormControl(
-        {
-          foodItemName: new FormControl('', [Validators.required]),
-          cuisine: new FormControl('', [Validators.required]),
-          price: new FormControl('', [Validators.required]),
-          quantity: new FormControl('', [Validators.required]),
-        }
-      ),
-      totalPrice: new FormControl('', [Validators.required]),
-    }
-
-    );
   }
 
-  get restaurantId() {
-    return this.orderForm.get('restaurantId');
-  }
-  get email() {
-    return this.orderForm.get('email');
-  }
-  get menuList() {
-    return this.orderForm.get('email');
-  }
-  get totalPrice() {
-    return this.orderForm.get('totalPrice');
-  }
 
 
   removeItem(foodItemName: any) {
@@ -73,9 +45,9 @@ export class AddToCartComponent implements OnInit {
       console.log(response);
       alert("Menu got Deleted")
     })
+    window.location.reload();
   }
 
-  emptycart() { }
 
   public incrementQuantity(foodItemName: string): void {
     console.log(foodItemName)
@@ -104,7 +76,7 @@ export class AddToCartComponent implements OnInit {
   }
 
 
-  public grandGrandTotal(): number {
+  public getGrandTotal(): number {
     let total: number = 0;
     for (let product of this.products) {
       total += (product.quantity * product.price);
@@ -113,22 +85,26 @@ export class AddToCartComponent implements OnInit {
     return total;
   }
 
-  order: any;
-
-
-
 
 
   orderCart() {
-    this.cartService.postOrder(this.order).subscribe({
+    this.orderToPlaced.email = this.email2;
+
+    this.orderToPlaced.menuList = this.products;
+    this.orderToPlaced.totalPrice = this.getGrandTotal()
+    console.log(this.orderToPlaced);
+    this.cartService.postOrder(this.orderToPlaced).subscribe({
 
       next(x) { alert("order is  placed") },
+      
       error(errormsg) { },
+      
     })
 
+    // this.cartService.deleteCart(this.email2).subscribe()
 
     this._snackBar.open('Congrats!!You order has been placed!!', 'success', {
-      // duration: 5000,
+      duration: 1000,
       panelClass: ['mat-toolbar', 'mat-primary']
     });
 

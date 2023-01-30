@@ -1,0 +1,236 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>confirm your address</ng-template>
+      <div class="col-md-8" class="container1">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ userData.firstName }} {{ userData.lastName }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ userData.email }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ userData.phone }}
+              </div>
+            </div>
+            <hr />
+
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ userData.street }}, {{ userData.city }}, {{ userData.state }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Zip</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ userData.zip }}
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-12">
+                <button
+                  mat-button
+                  color="warn"
+                  routerLink="/edit-profile/{{ userData.email }}"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Confirm Your order</ng-template>
+      <ng-container *ngIf="order != 0">
+        <div class="container">
+          <div class="card-table">
+            <div class="cart-product">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                    <th>Sr.No</th>
+                    <th>Menu</th>
+                    <th>cuisine</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of order?.menuList; let i = index">
+                    <td>{{ i + 1 }}</td>
+
+                    <th style="width: 12%">{{ item.foodItemName }}</th>
+                    <th style="width: 12%">{{ item.cuisine }}</th>
+                    <th style="width: 12%">{{ item.price }}</th>
+                    <td style="width: 12%">
+                      {{ item.quantity }}
+                    </td>
+
+                    <td style="width: 12%">
+                      {{ item.price * item.quantity }}
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="container bg-light rounded-bottom py-4" id="zero-pad">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-10 col-12">
+              <div class="d-flex justify-content-between align-items-center">
+                <div></div>
+                <div class="px-md-0 px-1" id="footer-font">
+                  <b class="pl-md-4"
+                    >SUBTOTAL :
+                    <span class="pl-md-4"
+                      ><span>{{
+                        order.totalPrice | currency : "INR" : true
+                      }}</span></span
+                    ></b
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div>
+        <button
+          routerLink="/admin-view"
+          class="btn btn-sm bg-light border border-dark"
+        >
+          shop More
+        </button>
+        <button mat-button color="warn" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>payment Options </ng-template>
+
+      <div class="container2">
+        <form action=" ">
+          <div class="row">
+            <div class="col">
+              <h3 class="title">payment</h3>
+
+              <div class="inputBox">
+                <span>cards accepted :</span>
+                <img src="../../assets/card_img.png" alt="" />
+              </div>
+              <div class="inputBox">
+                <span>name on card :</span>
+                <input
+                  type="text"
+                  placeholder="mr. john deo"
+                  name="NameOnCard"
+                  [(ngModel)]="cardDetails.NameOnCard"
+                />
+              </div>
+              <div class="inputBox">
+                <span>credit card number :</span>
+                <input
+                  type="number"
+                  placeholder="1111-2222-3333-4444"
+                  name="cardNumber"
+                  [(ngModel)]="cardDetails.cardNumber"
+                />
+              </div>
+              <div class="inputBox">
+                <span>exp month :</span>
+                <input
+                  type="text"
+                  placeholder="january"
+                  name="expiryMonth"
+                  [(ngModel)]="cardDetails.expiryMonth"
+                />
+              </div>
+
+              <div class="flex">
+                <div class="inputBox">
+                  <span>exp year :</span>
+                  <input
+                    type="number"
+                    placeholder="2022"
+                    name="expiryYear"
+                    [(ngModel)]="cardDetails.expiryYear"
+                  />
+                </div>
+                <div class="inputBox">
+                  <span>CVV :</span>
+
+                  <input
+                    type="text"
+                    placeholder="1234"
+                    name="CVV"
+                    [(ngModel)]="cardDetails.CVV"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <button mat-button color="warn" matStepperPrevious>Back</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button color="primary" matStepperPrevious>Back</button>
+
+      <button
+        routerLink="/owner"
+        class="btn btn-sm bg-dark text-white px-lg-5 px-3"
+        (click)="doCheckOut()"
+      >
+        order Now
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>

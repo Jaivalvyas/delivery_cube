@@ -1,3 +1,89 @@
-.mat-sort-header-container {
-    align-items: center;
-  }
+body {
+	font-size: 15px;
+    line-height: 1.52;
+    color: #717f86;
+    font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#banner{
+    background: url(../../../src/assets/banner-bg.jpg) no-repeat center top;
+    background-size: cover;
+    min-height: 540px;
+}
+.bg-color{
+    background-color: RGBA(0, 0, 0, 0.61);
+    min-height: 540px;
+}
+#banner h2{
+    font-family: 'Satisfy', sans-serif;
+    font-size: 45px;
+    color: #FFB03B;
+    margin-top: 35px;
+}
+#banner p{
+    font-family: 'PT Sans', sans-serif;
+    color: #fcfcfc;
+    font-size: 34px;
+}
+.section-padding{
+    padding: 60px 0px;
+}
+.logo-name{
+    font-family: 'Satisfy', sans-serif;
+    font-size: 65px;
+    margin-top: 200px;
+    color: #FFB03B;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+.menu-icon
+{
+    color: #fff;
+    font-size: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.header-h {
+    color: #FFB03B;
+    font-size: 46px;
+    font-family: 'Satisfy', sans-serif;
+    font-weight: 300;
+}
+.header-p {
+    color: #9699a6;
+    font-size: 16px;
+}
+.msg-row {
+    margin-top: 56px;
+}
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+.bg-13 {background-color: #f04e4e;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+

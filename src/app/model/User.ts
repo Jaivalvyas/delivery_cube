@@ -1,4 +1,3 @@
-import { Address } from "./Address"
 
 export class User {
     email?:string    

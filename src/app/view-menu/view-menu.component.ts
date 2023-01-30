@@ -17,6 +17,7 @@ export class ViewMenuComponent implements OnInit {
   restaurents: any;
   menuList: any;
   disableSelect = new FormControl(false);
+  products: any;
 
  
   constructor( private adminService: AdminService, private router: ActivatedRoute, private _snackBar: MatSnackBar, private userService: UserService, private authService: AuthserviceService) { }
@@ -37,8 +38,12 @@ export class ViewMenuComponent implements OnInit {
       }
     });
 
-    
-    
+   
+    this.userService.getCart(this.email)
+    .subscribe((res: any) => {
+      this.products = res;
+      console.log(this.products)
+    });
   }
 
 
@@ -50,6 +55,7 @@ export class ViewMenuComponent implements OnInit {
 
       error(errormsg) { alert("something Went Wrong") },
     });
+    window.location.reload();
     this._snackBar.open('You have deleted  the menu!!', 'success', {
       duration: 5000,
       panelClass: ['mat-toolbar', 'mat-primary']
@@ -63,10 +69,20 @@ export class ViewMenuComponent implements OnInit {
 
 
   addToCart(menu: any) {
-    console.log(menu);
-    console.log(this.email);
-    console.log(menu)
+
+    // for(var i=0;i<this.products.length;i++){
+    //   if(this.products[i].foodItemName===menu.foodItemName){
+    //     alert("product allready there");
+    //     break;
+    //   }else{
+
+
+    //   }
+    // }
+
     this.userService.addToCart(menu)
+
+    console.log(menu)
     this.userService.addMenuToCart(menu, this.email).subscribe({
       next(x) { alert("added to cart") },
       error(errormsg) { alert("something goes wrong") },

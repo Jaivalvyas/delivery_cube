@@ -40,16 +40,28 @@
     font-family: cursive;
   }
 
-  .col-md-4 img{
-    height: fit-content;
-    border-radius: 4px;
-    
-  }
-  .col-md-4 img:hover {
-    transition: 0.3s ease-in-out;
-    transform: scale(1.1);
-}
-button{
-  background-color: accent;
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* ----------------------------------------- */
+
+  #about img
+{
+    /* border: 5px solid rgb(255, 176, 59); */
+    border-radius: 2px;
+}
+.section-padding{
+  padding: 60px 0px;
+}

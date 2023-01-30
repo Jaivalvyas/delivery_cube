@@ -17,10 +17,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {HttpClientModule} from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -34,11 +34,14 @@ import { AddMenuComponent } from './add-menu/add-menu.component';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import {MatSortModule} from '@angular/material/sort';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FooterComponent } from './footer/footer.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -57,10 +60,14 @@ import {MatSortModule} from '@angular/material/sort';
     EditRestuarentComponent,
     AddMenuComponent,
     ViewMenuComponent,
-    AddToCartComponent ,
+    AddToCartComponent,
     ViewFavoriteComponent,
     EditProfileComponent,
-    
+    UserProfileComponent,
+    FooterComponent,
+    CheckoutComponent,
+
+
 
   ],
   imports: [
@@ -85,7 +92,8 @@ import {MatSortModule} from '@angular/material/sort';
     HttpClientModule,
     FormsModule,
     MatMenuModule,
-    MatSortModule
+    MatTabsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <h1>Restaurent List</h1>
 <div class="grid-container">
-  <div class="restarent" *ngFor="let restaurent of restaurents">
+  <div class="restaurent" *ngFor="let restaurent of restaurents">
       <div class="main">
         <div class="card">
           <div class="image">
@@ -11,19 +11,19 @@
           <div class="title">
             <a routerLink="/view-menu/{{ restaurent.restaurantId }}">
 
-            {{ restaurent.restaurantName }}
-            {{ restaurent.restaurantId }}
-            <h1>{{ restaurent.rating }}</h1>
+            <p>{{ restaurent.restaurantName }} </p>
+            <!-- {{ restaurent.restaurantId }} -->
+            <p>{{ restaurent.rating }}</p>
             <p>from {{ restaurent.location }}</p>
             </a>
           </div>
           <div class="des">
-            <button mat-raised-button color="accent">
+            <button mat-raised-button>
               <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}"
-                >edit Vehicle</a
+                >Edit Restaurent</a
               >
             </button>
-            <button mat-raised-button color="accent">
+            <button mat-raised-button>
               <a routerLink="/add-menu/{{ restaurent.restaurantId }}"
                 >add Menu</a
               >
@@ -40,4 +40,5 @@
       </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>

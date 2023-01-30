@@ -15,6 +15,8 @@ import { ViewMenuComponent } from './view-menu/view-menu.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { ViewFavoriteComponent } from './view-favorite/view-favorite.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -62,8 +64,17 @@ const routes: Routes = [
 
   },
   {
+    path: 'checkOut', component: CheckoutComponent
+
+  },
+  
+  {
+    path: 'UserProfile', component: UserProfileComponent
+  },
+  {
     path: 'Forbidden', component: ForbiddenComponent
   },
+
 ];
 
 @NgModule({

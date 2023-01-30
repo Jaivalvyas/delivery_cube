@@ -1,5 +1,5 @@
 <div class="logo">Add the Restaurent by providing your details</div>
-<br>
+<br />
 <div>
   <form [formGroup]="restaurentForm" (ngSubmit)="onSubmit()">
     <fieldset class="backcolor">
@@ -32,6 +32,18 @@
       </mat-form-field>
       <br />
       <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>description</mat-label>
+        <textarea
+          matInput
+          name="description"
+          formControlName="description"
+        ></textarea>
+        <mat-error *ngIf="description?.errors?.['required']">
+          description is required.
+        </mat-error>
+      </mat-form-field>
+      <br><br>
       <mat-form-field appearance="fill">
         <input
           matInput

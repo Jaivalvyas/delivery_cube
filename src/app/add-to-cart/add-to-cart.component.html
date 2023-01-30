@@ -28,7 +28,6 @@
                   (click)="decreamentQuantity(item.foodItemName)"
                   >remove_circle</mat-icon
                 >
-
                 {{ item.quantity }}
                 <mat-icon
                   color="accent"
@@ -36,6 +35,7 @@
                   >add_circle</mat-icon
                 >
               </td>
+              
               <td style="width: 12%">
                 {{ item.price * item.quantity }}
               </td>
@@ -66,17 +66,17 @@
             <b class="pl-md-4"
               >SUBTOTAL : <span class="pl-md-4"
                 ><span>{{
-                   grandGrandTotal() | currency : "INR" : true
+                   getGrandTotal() | currency : "INR" : true
                 }}</span></span
               ></b
             >
           </div>
           <div>
-            <button
+            <button routerLink="/checkOut"
               (click)="orderCart()"
               class="btn btn-sm bg-dark text-white px-lg-5 px-3"
             >
-              order Now
+              Check Out
             </button>
           </div>
         </div>

@@ -18,6 +18,8 @@ restaurentForm!:FormGroup
   }
   get restaurantName(){
     return this.restaurentForm.get('restaurantName');
+  }get description(){
+    return this.restaurentForm.get('description');
   }
   get location(){
     return this.restaurentForm.get('location');
@@ -33,6 +35,7 @@ restaurentForm!:FormGroup
 
       restaurantId:new FormControl('',[Validators.required]),
       restaurantName:new FormControl('',[Validators.required]),
+      description:new FormControl('',[Validators.required]),
       location:new FormControl('',[Validators.required]),
       rating:new FormControl('',[Validators.required]),
     }
