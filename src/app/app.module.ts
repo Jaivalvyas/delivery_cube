@@ -39,9 +39,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { FilterPipe } from './filter-pipe/filter.pipe';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     UserProfileComponent,
     FooterComponent,
     CheckoutComponent,
+    FilterPipe,
 
 
 
@@ -93,6 +95,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     MatMenuModule,
     MatTabsModule,
+    MatAutocompleteModule
 
   ],
   providers: [],

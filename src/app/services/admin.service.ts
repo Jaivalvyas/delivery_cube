@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Restaurent } from '../model/Restaurent';
 
 @Injectable({
@@ -38,4 +38,7 @@ export class AdminService {
   deleteMenu(restaurantId:number,foodItemName:string){
     return this.HttpClient.delete("http://localhost:9000/api/v2/menuList/"+restaurantId+"/"+foodItemName);
   }
+
+  public search = new BehaviorSubject<string>("");
+  public search1 = new BehaviorSubject<string>("");
 }
