@@ -76,56 +76,51 @@
           <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
       </div> -->
       <div class="col-md-5 col-sm-6">
-        <img src="../../assets/Jaival.jpeg" alt="" class="img-responsive">
+        <img src="../../assets/Jaival.jpeg" alt="" class="img-responsive" />
       </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="about-info">
-            <h2 class="heading">{{ restaurents.restaurantName }}</h2>
-            <p>{{restaurents.description}}</p>
-            <div class="details-list">
-              <h3>{{restaurents.location}}</h3>
-              <h4>{{ restaurents.rating }}</h4>
-            </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="about-info">
+          <h2 class="heading">{{ restaurents.restaurantName }}</h2>
+          <p>{{ restaurents.description }}</p>
+          <div class="details-list">
+            <h3>{{ restaurents.location }}</h3>
+            <h4>{{ restaurents.rating }}</h4>
           </div>
         </div>
-        
       </div>
     </div>
+  </div>
 
-    <br><br>
-    <div class="container">
-      <div class="row">
-        <div>
-          <h1>Available Menu</h1>
+  <br /><br />
+  <div class="container">
+    <div class="row">
+      <div>
+        <h1>Available Menu</h1>
+      </div>
+      <div class="col-md-6 col-sm-6" *ngFor="let menu of restaurents?.menuList">
+        <div class="d-flex h-100">
+          <div class="flex-shrink-0">
+            <img
+              class="img-fluid"
+              src="../../assets/menu/{{ menu.foodItemName }}.jpg"
+              alt=""
+              style="width: 250px; height: 150px"
+            />
+          </div>
+          <div
+            class="d-flex flex-column justify-content-center text-start border-inner px-4"
+          >
+            <h2 class="text-uppercase">{{ menu.foodItemName }}</h2>
+            <h3>{{ menu.cuisine }}</h3>
+            <h4 class="p-2 m-0">{{ menu.price }}</h4>
+            <button *ngIf="isAdmin" mat-button (click)="deletemenu(menu.foodItemName)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-button *ngIf="isUser" (click)="addToCart(menu)">add To Cart</button>
+            <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button>  -->
+          </div>
         </div>
-          <div class="col-md-6 col-sm-6" *ngFor="let menu of restaurents?.menuList">
-            <div class="d-flex h-100">
-              <div class="flex-shrink-0">
-                  <img class="img-fluid" src="../../assets/Jaival.jpeg" alt="" style="width: 250px; height: 150px;">
-                  
-              </div>
-              <div class="d-flex flex-column justify-content-center text-start border-inner px-4">
-                  <h2 class="text-uppercase">{{ menu.foodItemName }}</h2>
-                  <h3>{{menu.cuisine}}</h3>
-                  <h4 class="p-2 m-0">{{menu.price}}</h4>
-                  <button mat-button (click)="deletemenu(menu.foodItemName)">
-                    <mat-icon>delete</mat-icon>
-                  </button>
-                  <button mat-button (click)="addToCart(menu)">add To Cart</button>
-                   <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button>  -->
-              </div>
-          </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-
-          </div>
       </div>
     </div>
+  </div>
 </section>
-
-
-
-
-
-
-

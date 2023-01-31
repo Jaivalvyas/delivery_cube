@@ -15,7 +15,7 @@ import { UserService } from '../services/user.service';
 export class AdminViewComponent implements OnInit {
   restaurents: any
 
-  constructor(private adminService: AdminService, private authService: AuthserviceService, private userService: UserService) { }
+  constructor(private logInServ:LoginService, private adminService: AdminService, private authService: AuthserviceService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.adminService.fetchRestaurent().subscribe({
@@ -49,6 +49,9 @@ export class AdminViewComponent implements OnInit {
 
 
   }
+  
+  isAdmin: boolean = this.logInServ.roleMatch("Admin");
+  isUser: boolean = this.logInServ.roleMatch("User");
 
 }
 

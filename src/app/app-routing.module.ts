@@ -72,7 +72,7 @@ const routes: Routes = [
     path: 'UserProfile', component: UserProfileComponent
   },
   {
-    path: 'Forbidden', component: ForbiddenComponent
+    path: '**', component: ForbiddenComponent
   },
 
 ];

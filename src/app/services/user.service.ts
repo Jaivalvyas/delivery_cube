@@ -77,8 +77,9 @@ export class UserService {
     this.productList.next(product);
   }
 
-  
+
   addToCart(product:any){
+    
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     console.log(this.cartItemList);  

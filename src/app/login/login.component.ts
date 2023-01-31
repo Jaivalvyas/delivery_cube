@@ -39,16 +39,16 @@ export class LoginComponent implements OnInit {
 
 
   show: boolean = false;
+
   submit(logInForm: any): void {
     this.dialogRef.close();
     this.loginService.login(logInForm.value).subscribe(
       (response: any) => {
 
         console.log(response);
+        console.log(response.token)
         this.authservice.setRole(response.user.role);
-        this.authservice.setToken(response.jwtToken);
-
-        this.authservice.setToken(response.jwtToken);
+        this.authservice.setToken(response.token);
         console.log(response.user.role);
 
         this.authservice.setEmail(response.user.email)

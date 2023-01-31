@@ -28,7 +28,7 @@ export class AddToCartComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.cartService.getProducts().subscribe(responce => {
+    this.cartService.getCart(this.email2).subscribe(responce => {
       this.products = responce;
       
     });

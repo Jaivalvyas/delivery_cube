@@ -4,8 +4,7 @@
       <div class="main">
         <div class="card">
           <div class="image">
-            <!-- {{ restaurent.restaurantName }} -->
-            <img src="../../assets/Jaival.jpeg" style="width: 100%" />
+            <img src="../../assets/{{restaurent.restaurantName}}.jpg" style="width: 100%" />
           </div>
 
           <div class="title">
@@ -18,17 +17,17 @@
             </a>
           </div>
           <div class="des">
-            <button mat-raised-button>
+            <button mat-raised-button *ngIf="isAdmin">
               <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}"
                 >Edit Restaurent</a
               >
             </button>
-            <button mat-raised-button>
+            <button mat-raised-button *ngIf="isAdmin">
               <a routerLink="/add-menu/{{ restaurent.restaurantId }}"
                 >add Menu</a
               >
             </button>
-            <button
+            <button *ngIf="isUser"
               mat-raised-button
               color="accent"
               (click)="addFavorite(restaurent.restaurantId)"
