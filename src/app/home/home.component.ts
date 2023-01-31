@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import {Sort} from '@angular/material/sort';
+import { map, Observable, startWith } from 'rxjs';
+import { AdminService } from '../services/admin.service';
+export interface StateGroup {
+  letter: string;
+  names: string[];
+}
+export const _filter = (opt: string[], value: string): string[] => {
+  const filterValue = value.toLowerCase();
 
+  return opt.filter(item => item.toLowerCase().includes(filterValue));
+};
 
 
 export interface Dessert {
@@ -20,48 +31,151 @@ export interface Dessert {
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
-  desserts: Dessert[] = [
-    {name: 'Frozen yogurt', calories: 159, fat: 6, carbs: 24, protein: 4},
-    {name: 'Ice cream sandwich', calories: 237, fat: 9, carbs: 37, protein: 4},
-    {name: 'Eclair', calories: 262, fat: 16, carbs: 24, protein: 6},
-    {name: 'Cupcake', calories: 305, fat: 4, carbs: 67, protein: 4},
-    {name: 'Gingerbread', calories: 356, fat: 16, carbs: 49, protein: 4},
+export class HomeComponent implements OnInit {
+  
+  stateForm = this._formBuilder.group({
+    stateGroup: '',
+  });
+
+  stateGroups: StateGroup[] = [
+    {
+      letter: 'A',
+      names: ['Alabama', 'Alaska', 'Arizona', 'Arkansas'],
+    },
+    {
+      letter: 'C',
+      names: ['California', 'Colorado', 'Connecticut'],
+    },
+    {
+      letter: 'D',
+      names: ['Delaware'],
+    },
+    {
+      letter: 'F',
+      names: ['Florida'],
+    },
+    {
+      letter: 'G',
+      names: ['Georgia'],
+    },
+    {
+      letter: 'H',
+      names: ['Hyderabad'],
+    },
+    {
+      letter: 'I',
+      names: ['Idaho', 'Illinois', 'Indiana', 'Iowa'],
+    },
+    {
+      letter: 'K',
+      names: ['Kansas', 'Kentucky'],
+    },
+    {
+      letter: 'L',
+      names: ['Louisiana'],
+    },
+    {
+      letter: 'M',
+      names: [
+        'Maine',
+        'Maryland',
+        'Massachusetts',
+        'Michigan',
+        'Minnesota',
+        'Mississippi',
+        'Missouri',
+        'Montana',
+      ],
+    },
+    {
+      letter: 'N',
+      names: [
+        'Nebraska',
+        'Nevada',
+        'New Hampshire',
+        'New Jersey',
+        'New Mexico',
+        'New York',
+        'North Carolina',
+        'North Dakota',
+      ],
+    },
+    {
+      letter: 'O',
+      names: ['Ohio', 'Oklahoma', 'Oregon'],
+    },
+    {
+      letter: 'P',
+      names: ['Pennsylvania'],
+    },
+    {
+      letter: 'R',
+      names: ['Rhode Island'],
+    },
+    {
+      letter: 'S',
+      names: ['South Carolina', 'South Dakota'],
+    },
+    {
+      letter: 'T',
+      names: ['Tennessee', 'Texas'],
+    },
+    {
+      letter: 'U',
+      names: ['Uppal'],
+    },
+    {
+      letter: 'V',
+      names: ['Vermont', 'Virginia'],
+    },
+    {
+      letter: 'W',
+      names: ['Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+    },
   ];
 
-  sortedData: Dessert[];
+  stateGroupOptions!: Observable<StateGroup[]>;
 
-  constructor() {
-    this.sortedData = this.desserts.slice();
+  
+
+  constructor(private adminservice:AdminService, private _formBuilder:FormBuilder) {
+    
   }
-
-  sortData(sort: Sort) {
-    const data = this.desserts.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
-      return;
+  ngOnInit(): void {
+    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterGroup(value || '')),
+    );
+  }
+  
+  private _filterGroup(value: any): StateGroup[] {
+    if (value) {
+      return this.stateGroups
+        .map(group => ({letter: group.letter, names: _filter(group.names, value)}))
+        .filter(group => group.names.length > 0);
     }
 
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'name':
-          return compare(a.name, b.name, isAsc);
-        case 'calories':
-          return compare(a.calories, b.calories, isAsc);
-        case 'fat':
-          return compare(a.fat, b.fat, isAsc);
-        case 'carbs':
-          return compare(a.carbs, b.carbs, isAsc);
-        case 'protein':
-          return compare(a.protein, b.protein, isAsc);
-        default:
-          return 0;
-      }
-    });
+    return this.stateGroups;
   }
+
+  public searchTerm !: string;
+  public searchTerm1 !: string;
+
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.adminservice.search.next(this.searchTerm);
+
+  }
+
+  search1(event:any){
+    
+    this.searchTerm1 = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm1);
+   
+    this.adminservice.search1.next(this.searchTerm1);
+  }
+
+
 }
 
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}

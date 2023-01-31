@@ -1,0 +1,22 @@
+.admin-banner{
+    background: url(../../../src/assets/HomeBanner.jpg) no-repeat center top;
+    background-size: cover;
+    min-height: 540px;
+}
+.view-res{
+    color: white;
+    margin-top: 200px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.add-res{
+    color: white;
+    margin-top: 200px;
+}
+button{
+    width: 250px;
+    height: 75px;
+}
+

@@ -8,19 +8,19 @@ h1{
     color: black;
   }
   
-    .grid-container {
-      /* display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 10px; */
-      /* background-image: url("../../assets/back.jpg"); */
-      
-      display: flex;
-      grid-template-columns: auto auto auto;
-      padding: 10px;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-    }
+  .grid-container {
+    /* display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px; */
+    /* background-image: url("../../assets/back.jpg"); */
+    
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
   
   
   
@@ -39,12 +39,19 @@ h1{
      }
      
      .card{
-          width: 100%;
-          display: inline-block;
-          /* box-shadow: 2px 2px 20px black; */
-          border-radius: 5px; 
-          /* margin: 2%; */
-         }
+      width: 100%;
+      display: inline-block;
+      
+      border-radius: 5px; 
+      /* margin: 2%; */
+      border-color: white;
+     }
+
+     .card:hover{
+      background-color: white;
+      border-color: antiquewhite;
+      box-shadow: 1px 1px 10px rgb(122, 117, 117);
+     }
      
      .image img{
        width: 100%;
@@ -73,14 +80,14 @@ h1{
        border-bottom-left-radius: 5px;
      }
      button{
-       /* margin-top: 40px; */
-       margin-bottom: 10px;
-       /* background-color: white; */
-       /* border: 1px solid #000000; */
-       border-radius: 5px;
-       padding:10px;
-       margin-right: 20px;
-     }
+      /* margin-top: 40px; */
+      margin-bottom: 10px;
+      /* background-color: white; */
+      /* border: 1px solid #000000; */
+      border-radius: 5px;
+      padding:10px;
+      margin-right: 15px;
+    }
      button:hover{
        /* background-color: black;
        color: white; */
@@ -92,6 +99,8 @@ h1{
      .restaurent{
       padding: 5px;
      }
-
+     .heading{
+      padding-top: 25px;
+     }
      
     

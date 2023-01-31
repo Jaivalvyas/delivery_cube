@@ -17,6 +17,9 @@ export class AdminViewComponent implements OnInit {
 
   constructor(private logInServ:LoginService, private adminService: AdminService, private authService: AuthserviceService, private userService: UserService) { }
 
+  searchKey:string ="";
+  searchKey2:string ="";
+
   ngOnInit(): void {
     this.adminService.fetchRestaurent().subscribe({
       next: restaurentData => {
@@ -26,6 +29,14 @@ export class AdminViewComponent implements OnInit {
       error: e => {
         alert("Something went wrong try after sometime")
       }
+    })
+
+    this.adminService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+
+    this.adminService.search1.subscribe((val:any)=>{
+      this.searchKey2 = val;
     })
   }
 

@@ -39,11 +39,12 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { AdminGuard } from './guards/admin.guard';
 import { UserService } from './services/user.service';
+import { FilterPipe } from './filter-pipe/filter.pipe';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { UserService } from './services/user.service';
     UserProfileComponent,
     FooterComponent,
     CheckoutComponent,
+    FilterPipe,
 
 
 
@@ -95,6 +97,7 @@ import { UserService } from './services/user.service';
     FormsModule,
     MatMenuModule,
     MatTabsModule,
+    MatAutocompleteModule
 
   ],
   providers: [
