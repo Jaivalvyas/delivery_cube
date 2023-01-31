@@ -25,8 +25,8 @@ export class CheckoutComponent implements OnInit {
     CVV: 0
   };
   checkOut = new CheckOutDetails();
+  checkOutData: any;
   constructor(private _formBuilder: FormBuilder, private userDetails: RegistrationService, private authService: AuthserviceService, private orderDetails: UserService) {
-
   }
 
   firstFormGroup = this._formBuilder.group({
@@ -51,6 +51,7 @@ export class CheckoutComponent implements OnInit {
   expiryMonth: string = '';
   expiryYear: string = '';
   CVV!: number;
+  checkoutNumber!: number;
 
   isLinear = false;
 
@@ -70,14 +71,24 @@ export class CheckoutComponent implements OnInit {
         console.log(this.order);
       });
 
+   
+
+
+    
+
+
   }
 
-  checkoutNumber = 1
+
+
   doCheckOut() {
+    this.checkoutNumber = Math.floor(Math.random() * 101);
+
+    console.log(this.checkoutNumber)
     console.log(this.cardDetails);
     this.checkOut.orderId = this.checkoutNumber
-    this.checkOut.billingDetails=this.cardDetails
-    this.checkOut.user=this.userData
+    this.checkOut.billingDetails = this.cardDetails
+    this.checkOut.user = this.userData
     this.checkOut.order = this.order;
     console.log(this.checkOut)
     this.orderDetails.postCheckOut(this.checkOut).subscribe({
@@ -86,8 +97,8 @@ export class CheckoutComponent implements OnInit {
       error() { alert("Something goes wrong") }
 
 
-    })
-    this.checkoutNumber++;
+    });
+
   }
 
 }
