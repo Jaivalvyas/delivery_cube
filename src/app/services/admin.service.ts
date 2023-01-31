@@ -38,4 +38,5 @@ export class AdminService {
   deleteMenu(restaurantId:number,foodItemName:string){
     return this.HttpClient.delete("http://localhost:9000/api/v2/menuList/"+restaurantId+"/"+foodItemName);
   }
+  
 }

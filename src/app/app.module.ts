@@ -20,7 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -42,6 +42,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { AdminGuard } from './guards/admin.guard';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -95,7 +97,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
 
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

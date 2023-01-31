@@ -60,7 +60,7 @@ export class NavigationBarComponent {
     
   constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
     private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
-     private logIn2:LoginService, private regS:RegistrationService, private httpClient:HttpClient,
+     private httpClient:HttpClient,
      private userService:UserService) {}
 
   ngOnInit(): void {
