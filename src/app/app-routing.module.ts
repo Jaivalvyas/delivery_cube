@@ -20,6 +20,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
 import { RoleGuard } from './guards/role.guard';
+import { OrderPlacedNotificationComponent } from './order-placed-notification/order-placed-notification.component';
 
 const routes: Routes = [
   {
@@ -36,12 +37,12 @@ const routes: Routes = [
   },
   {
     path: 'owner', component: OwnerComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
   },
   {
     path: 'user', component: UserComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
   }, {
     path: 'login', component: LoginComponent
@@ -51,53 +52,58 @@ const routes: Routes = [
   },
   {
     path: 'admin-view', component: AdminViewComponent,
-    canActivate:[RoleGuard]
+    canActivate: [RoleGuard]
 
   },
   {
     path: 'add-restaurant', component: AddRestuarentComponent,
-    canActivate:[AdminGuard]
-    
+    canActivate: [AdminGuard]
+
   },
   {
     path: 'edit-restaurant/:restaurantId', component: EditRestuarentComponent,
-  
-    canActivate:[AdminGuard]
+
+    canActivate: [AdminGuard]
   },
   {
     path: 'add-menu/:restaurantId', component: AddMenuComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
   },
   {
     path: 'view-menu/:restaurantId', component: ViewMenuComponent,
   },
-  
+
   {
     path: 'view-favorite', component: ViewFavoriteComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
   },
   {
-    path: 'add-cart', component: AddToCartComponent,
-    canActivate:[UserGuard]
+    path: 'notification/:orderId', component: OrderPlacedNotificationComponent,
 
-    
+  },
+
+  {
+    path: 'add-cart', component: AddToCartComponent,
+    canActivate: [UserGuard]
+
+
   },
   {
     path: 'admin', component: AdminComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard]
 
   },
   {
     path: 'checkOut', component: CheckoutComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard]
 
 
   },
-  
+
   {
     path: 'UserProfile', component: UserProfileComponent,
-    canActivate:[RoleGuard]
+    canActivate: [RoleGuard]
 
   },
   {

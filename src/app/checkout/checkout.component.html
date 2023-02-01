@@ -163,7 +163,7 @@
                   type="text"
                   placeholder="mr. john deo"
                   name="NameOnCard"
-                  [(ngModel)]="cardDetails.NameOnCard"
+                  [(ngModel)]="cardDetails.nameOnCard"
                 />
               </div>
               <div class="inputBox">
@@ -202,7 +202,7 @@
                     type="text"
                     placeholder="1234"
                     name="CVV"
-                    [(ngModel)]="cardDetails.CVV"
+                    [(ngModel)]="cardDetails.cvv"
                   />
                 </div>
               </div>
@@ -225,12 +225,14 @@
       <button mat-button color="primary" matStepperPrevious>Back</button>
 
       <button
-        routerLink="/owner"
+      routerLink="/notification/{{ checkoutNumber }}"
+
         class="btn btn-sm bg-dark text-white px-lg-5 px-3"
         (click)="doCheckOut()"
       >
         order Now
       </button>
+      
     </div>
   </mat-step>
 </mat-stepper>

@@ -25,8 +25,9 @@ export class NavigationBarComponent {
   email: any;
   postResponse: any;
   dbImage: any;
-  orderCounts: number=0;
+  orderCounts: number = 0;
   cartItemsCounter: any;
+  cartData: any;
 
   openDialog() {
     const dialogRef = this.dialog.open(RegistrationComponent);
@@ -57,33 +58,34 @@ export class NavigationBarComponent {
       map(result => result.matches),
       shareReplay()
     );
-    
-  constructor(private breakpointObserver: BreakpointObserver,public dialog: MatDialog,
-    private authServ:AuthserviceService,private router:Router, private logInServ:LoginService,
-     private httpClient:HttpClient,
-     private userService:UserService) {}
+
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog,
+    private authServ: AuthserviceService, private router: Router, private logInServ: LoginService,
+    private httpClient: HttpClient,
+    private userService: UserService) { }
 
   ngOnInit(): void {
-    if(this.isLoggedIn()){
-    this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
-      res => {
-        this.postResponse = res;          
-        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-      });
+    if (this.isLoggedIn()) {
+      this.httpClient.get('http://localhost:9000/api/v2/get/image/info/' + this.authServ.getEmail()).subscribe(
+        res => {
+          this.postResponse = res;
+          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+        });
     }
 
-    this.userService.getProducts().subscribe(responce=>{
-      this.cartItemsCounter=responce.length;
-     })
+    this.userService.getCart(this.email).subscribe(responce => {
+      this.cartData = responce;
+      this.cartItemsCounter = this.cartData.length
+
+      console.log(responce)
+    })
   }
 
-counterFunction(){
- 
-}
 
-  public isLoggedIn(){
+
+  public isLoggedIn() {
     this.email = this.authServ.getEmail();
-    return this.authServ.isLoggedIn()    
+    return this.authServ.isLoggedIn()
   }
 
   public logOut() {
@@ -97,6 +99,6 @@ counterFunction(){
   isAdmin: boolean = this.logInServ.roleMatch("Admin");
   isUser: boolean = this.logInServ.roleMatch("User");
 
- 
+
 
 }

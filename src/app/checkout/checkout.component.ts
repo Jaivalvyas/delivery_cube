@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { config } from 'rxjs';
 import { Billing } from '../model/Billing';
 import { CheckOutDetails } from '../model/CheckOutDetails';
 import { User } from '../model/User';
+import { OrderPlacedNotificationComponent } from '../order-placed-notification/order-placed-notification.component';
 import { AuthserviceService } from '../services/authservice.service';
 import { RegistrationService } from '../services/registration.service';
 import { UserService } from '../services/user.service';
@@ -18,16 +22,17 @@ export class CheckoutComponent implements OnInit {
   curInvoice: any;
   suppliers: any;
   cardDetails: Billing = {
-    NameOnCard: '',
+    nameOnCard: '',
     cardNumber: 0,
     expiryMonth: '',
     expiryYear: '',
-    CVV: 0
+    cvv: 0
   };
   checkOut = new CheckOutDetails();
-  constructor(private _formBuilder: FormBuilder, private userDetails: RegistrationService, private authService: AuthserviceService, private orderDetails: UserService) {
-
+  checkOutData: any;
+  constructor(readonly _snackBar: MatSnackBar,private _formBuilder: FormBuilder, private userDetails: RegistrationService, private authService: AuthserviceService, private orderDetails: UserService) {
   }
+ 
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -51,6 +56,8 @@ export class CheckoutComponent implements OnInit {
   expiryMonth: string = '';
   expiryYear: string = '';
   CVV!: number;
+  checkoutNumber = Math.floor(Math.random() * 101);
+  
 
   isLinear = false;
 
@@ -70,24 +77,34 @@ export class CheckoutComponent implements OnInit {
         console.log(this.order);
       });
 
+
+
+
+
+
+
   }
 
-  checkoutNumber = 1
+
+
   doCheckOut() {
+    console.log(this.checkoutNumber)
     console.log(this.cardDetails);
     this.checkOut.orderId = this.checkoutNumber
-    this.checkOut.billingDetails=this.cardDetails
-    this.checkOut.user=this.userData
+    this.checkOut.billingDetails = this.cardDetails
+    this.checkOut.user = this.userData
     this.checkOut.order = this.order;
     console.log(this.checkOut)
     this.orderDetails.postCheckOut(this.checkOut).subscribe({
       next() { },
       complete() { "Order Placed" },
       error() { alert("Something goes wrong") }
-
-
-    })
-    this.checkoutNumber++;
+    });
+    
+    this._snackBar.open('Thank you! Your order is confirmed.!! ', 'success', {
+      duration: 5000,
+      panelClass: ['mat-toolbar', 'mat-primary']
+    });
   }
 
 }
