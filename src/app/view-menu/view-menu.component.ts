@@ -164,7 +164,7 @@ export class ViewMenuComponent implements OnInit {
     });
 
 
-    this.userService.getCart(this.email)
+    this.userService.getProducts()
       .subscribe((res: any) => {
         this.products = res;
         console.log(this.products)
@@ -243,7 +243,6 @@ export class ViewMenuComponent implements OnInit {
         window.location.reload();
 
   }
-
 
 
   isAdmin: boolean = this.logInServ.roleMatch("Admin");
