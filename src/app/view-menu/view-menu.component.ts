@@ -240,7 +240,7 @@ export class ViewMenuComponent implements OnInit {
     } else {
       alert("already in cart")
     }
-
+    
   }
 
 

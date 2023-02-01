@@ -64,6 +64,9 @@ export class UserService {
     return this.HttpClient.post(" http://localhost:9000/api/v3/saveCheckOutDetails", CheckOutDetails)
   }
 
+  getRestaurantListBasedOnCuisine(cuisine: any) {
+    return this.HttpClient.get("http://localhost:9000/api/v2/getbycuisine/" +cuisine)
+  }
 
   public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([])
@@ -92,4 +95,6 @@ export class UserService {
         grandtotal+=a.total;
       });
     }
+
+
 }

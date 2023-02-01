@@ -1,22 +1,22 @@
-<h1> Favorite Restaurent List</h1>
-<div class="grid-container">
-  <div class="restarent" *ngFor="let restaurent of restaurents">
+<div class="container-fluid">
+  <div class="row">
+<h1 class="title"> Favorite Restaurent List</h1>
+  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 grid-container" *ngFor="let restaurent of restaurents">
       <div class="main">
         <div class="card">
           <div class="image">
-            <!-- {{ restaurent.restaurantName }} -->
             <img src="../../assets/Jaival.jpeg" style="width: 100%" />
+            <!-- <img src="../../assets/{{restaurent.restaurantName}}.jpg" style="width: 100%" /> -->
           </div>
 
           <div class="title">
             <a routerLink="/view-menu/{{ restaurent.restaurantId }}">
 
-            {{ restaurent.restaurantName }}
-            {{ restaurent.restaurantId }}
-            <h1>{{ restaurent.rating }}</h1>
-            <p>from {{ restaurent.location }}</p>
-        </a>
-
+            <p class="restaurantName">{{ restaurent.restaurantName }} </p>
+            <!-- {{ restaurent.restaurantId }} -->
+            <p class="sub-para"><mat-icon>stars</mat-icon> {{ restaurent.rating }}</p>
+            <p class="sub-para"><mat-icon>room</mat-icon> {{ restaurent.location }}</p>
+            </a>
           </div>
           <div class="des">
           
@@ -31,5 +31,6 @@
         </div>
       </div>
   </div>
+</div>
 </div>
 <router-outlet></router-outlet>

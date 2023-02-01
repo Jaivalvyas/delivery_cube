@@ -75,27 +75,32 @@
         <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
           <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
       </div> -->
-      <div class="col-md-5 col-sm-6">
-        <img src="../../assets/Jaival.jpeg" alt="" class="img-responsive" />
+      <div class="col-12 col-md-5 col-sm-6 col-lg-4">
+        <img src="../../assets/Jaival.jpeg" alt="" class="img-responsive-rest" />
       </div>
-      <div class="col-md-6 col-sm-6">
+      <div class="col-12 col-md-7 col-sm-6 col-lg-4">
         <div class="about-info">
           <h2 class="heading">{{ restaurents.restaurantName }}</h2>
           <p>{{ restaurents.description }}</p>
           <div class="details-list">
-            <h3>{{ restaurents.location }}</h3>
-            <h4>{{ restaurents.rating }}</h4>
+            <h3><mat-icon class="w3-tiny">room</mat-icon> {{ restaurents.location }}</h3>
+            <h4><mat-icon>stars</mat-icon> {{ restaurents.rating }}</h4>
           </div>
         </div>
       </div>
+      <div class="col-lg-4">
+        <h1>Upcoming Offers!!!</h1>
+      </div>
     </div>
   </div>
-
+</section>
+<section>
   <br /><br />
   <div class="container">
     <div class="row">
       <div>
         <h1>Available Menu</h1>
+        <div class="input-group">
         <form [formGroup]="stateForm">
           <mat-form-field appearance="fill">
             <mat-label>Cuisine</mat-label>
@@ -113,11 +118,12 @@
               </mat-optgroup>
             </mat-autocomplete>
           </mat-form-field>
-        </form>
-        <input type="text" class="form-control"   [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search foodItemName">
-        
+        </form><span class="input-group-btn" 
+        style="width:0px;"></span>
+        <input matInput type="text" class="form-control"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search By Food Item Name">
       </div>
-      <div class="col-md-6 col-sm-6" *ngFor="let menu of restaurents?.menuList | filter:searchKey:'foodItemName' | filter:searchKey2:'cuisine'">
+      </div>
+      <div class="col-12 col-md-6 col-sm-6 col-lg-6 display-menu" *ngFor="let menu of restaurents?.menuList | filter:searchKey:'foodItemName' | filter:searchKey2:'cuisine'">
         <div class="d-flex h-100">
           <div class="flex-shrink-0">
             <img
@@ -131,16 +137,16 @@
             class="d-flex flex-column justify-content-center text-start border-inner px-4"
           >
             <h2 class="text-uppercase">{{ menu.foodItemName }}</h2>
-            <h3>{{ menu.cuisine }}</h3>
+            <h4>{{ menu.cuisine }}</h4>
             <h4 class="p-2 m-0">{{ menu.price }}</h4>
-            <button *ngIf="isAdmin" mat-button (click)="deletemenu(menu.foodItemName)">
+            <button class="btn-submit" *ngIf="isAdmin" mat-button (click)="deletemenu(menu.foodItemName)">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-button *ngIf="isUser" (click)="addToCart(menu)">add To Cart</button>
-            <!-- <button type="button" matb [disabled]="clicked" (click)="addToCart(menu); clicked = true;" class="btn btn-primary">addToCart</button>  -->
+            <button class="btn-submit" mat-button *ngIf="isUser" (click)="addToCart(menu)">Add To Cart</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<app-footer></app-footer>

@@ -1,6 +1,76 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
 <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="section-title mb-4 pb-2">
+                    <h4 class="title mb-4">Inspiration for your first order</h4>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('Biryani')">
+                <div class="team text-center rounded p-3 py-4">
+                    <!-- <img src="../../assets/biryani.jpg" class="img-fluid avatar avatar-medium shadow rounded-pill" alt=""> -->
+                    <img src="../../assets/biryani.jpg" class="rounded-circle" width="200px" height="200px">
+                    <div class="content mt-3">
+                        <h4 class="title mb-0">Biryani</h4>
+                        
+                    </div>
+                </div>
+            </div><!--end col-->
+            
+            <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('Pizza')">
+                <div class="team text-center rounded p-3 py-4">
+                    <img src="../../assets/pizza.jpg" class="rounded-circle" width="200px" height="200px">
+                    <div class="content mt-3">
+                        <h4 class="title mb-0">Pizza</h4>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('Burger')">
+              <div class="team text-center rounded p-3 py-4">
+                  <img src="../../assets/burger.jpeg" class="rounded-circle" width="200px" height="200px">
+                  <div class="content mt-3">
+                      <h4 class="title mb-0">Burger</h4>
+                  </div>
+              </div>
+          </div><!--end col-->
+
+          <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('South Indian')">
+            <div class="team text-center rounded p-3 py-4">
+                <img src="../../assets/SI.jpg" class="rounded-circle" width="200px" height="200px">
+                <div class="content mt-3">
+                    <h4 class="title mb-0">South Indian</h4>
+                </div>
+            </div>
+        </div><!--end col-->
+
+        <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('Momos')">
+          <div class="team text-center rounded p-3 py-4">
+              <img src="../../assets/momos.jpg" class="rounded-circle" width="200px" height="200px">
+              <div class="content mt-3">
+                  <h4 class="title mb-0">Momo's</h4>
+              </div>
+          </div>
+      </div><!--end col-->
+
+      <div class="col-lg-2 col-md-6 col-12 mt-4 pt-2" (click)="getRestaurantList('Cake')">
+        <div class="team text-center rounded p-3 py-4">
+            <img src="../../assets/cake.jpg" class="rounded-circle" width="200px" height="200px">
+            <div class="content mt-3">
+                <h4 class="title mb-0">Cake</h4>
+            </div>
+        </div>
+    </div><!--end col-->
+        </div><!--end row-->
+    </div>
+<!-- Restaurant List-->
+<div class="container-fluid" *ngIf="showList">
   <div class="row">
-<h1 class="heading">Restaurent List</h1>
+<h1 class="title">Restaurent List</h1>
   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 grid-container" *ngFor="let restaurent of restaurents | filter:searchKey:'restaurantName' | filter:searchKey2:'location'">
       <div class="main">
         <div class="card">
@@ -12,27 +82,75 @@
           <div class="title">
             <a routerLink="/view-menu/{{ restaurent.restaurantId }}">
 
-            <p>{{ restaurent.restaurantName }} </p>
+            <p class="restaurantName">{{ restaurent.restaurantName }} </p>
             <!-- {{ restaurent.restaurantId }} -->
-            <p>{{ restaurent.rating }}</p>
-            <p>from {{ restaurent.location }}</p>
+            <p class="sub-para"><mat-icon>stars</mat-icon> {{ restaurent.rating }}</p>
+            <p class="sub-para"><mat-icon>room</mat-icon> {{ restaurent.location }}</p>
             </a>
           </div>
           <div class="des">
-            <button mat-raised-button *ngIf="isAdmin">
+            <button mat-raised-button *ngIf="isAdmin" class="btn">
               <a routerLink="/edit-restaurant/{{ restaurent.restaurantId }}"
                 >Edit Restaurent</a
               >
             </button>
-            <button mat-raised-button *ngIf="isAdmin">
+            <button mat-raised-button *ngIf="isAdmin" class="btn">
               <a routerLink="/add-menu/{{ restaurent.restaurantId }}"
+                >add Menu</a
+              >
+            </button>
+            <!-- <button *ngIf="isUser"
+              mat-raised-button
+              color="accent"
+              (click)="addFavorite(restaurent.restaurantId)"
+            >
+              <mat-icon>favorite</mat-icon>
+            </button> -->
+            <button mat-mini-fab matTooltip="Accent" color="accent" *ngIf="isUser" (click)="addFavorite(restaurent.restaurantId)">
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid" *ngIf="!showList">
+  <div class="row">
+<h1 class="title">Filtered List</h1>
+  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 grid-container" *ngFor="let rest of filteredRestaurants | filter:searchKey:'restaurantName' | filter:searchKey2:'location'">
+      <div class="main">
+        <div class="card">
+          <div class="image">
+            <img src="../../assets/Jaival.jpeg" style="width: 100%" />
+            <!-- <img src="../../assets/{{restaurent.restaurantName}}.jpg" style="width: 100%" /> -->
+          </div>
+
+          <div class="title">
+            <a routerLink="/view-menu/{{ rest.restaurantId }}">
+
+            <p>{{ rest.restaurantName }} </p>
+            <!-- {{ restaurent.restaurantId }} -->
+            <p class="sub-para"><mat-icon>stars</mat-icon> {{ rest.rating }}</p>
+            <p class="sub-para"><mat-icon>room</mat-icon> {{ rest.location }}</p>
+            </a>
+          </div>
+          <div class="des">
+            <button mat-raised-button *ngIf="isAdmin">
+              <a routerLink="/edit-restaurant/{{ rest.restaurantId }}"
+                >Edit Restaurent</a
+              >
+            </button>
+            <button mat-raised-button *ngIf="isAdmin">
+              <a routerLink="/add-menu/{{ rest.restaurantId }}"
                 >add Menu</a
               >
             </button>
             <button *ngIf="isUser"
               mat-raised-button
               color="accent"
-              (click)="addFavorite(restaurent.restaurantId)"
+              (click)="addFavorite(rest.restaurantId)"
             >
               <mat-icon>favorite</mat-icon>
             </button>

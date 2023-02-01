@@ -14,7 +14,8 @@ import { UserService } from '../services/user.service';
 })
 export class AdminViewComponent implements OnInit {
   restaurents: any
-
+  filteredRestaurants:any;
+  showList:Boolean=true;
   constructor(private logInServ:LoginService, private adminService: AdminService, private authService: AuthserviceService, private userService: UserService) { }
 
   searchKey:string ="";
@@ -63,6 +64,15 @@ export class AdminViewComponent implements OnInit {
   
   isAdmin: boolean = this.logInServ.roleMatch("Admin");
   isUser: boolean = this.logInServ.roleMatch("User");
+
+
+  getRestaurantList(cuisine:String){
+    this.showList =false;
+    this.userService.getRestaurantListBasedOnCuisine(cuisine).subscribe((res: any) => {
+      this.filteredRestaurants = res;
+      console.log(this.filteredRestaurants)
+    });
+  }
 
 }
 

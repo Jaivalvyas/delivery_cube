@@ -1,7 +1,4 @@
-.example-card {
-    max-width: 400px;
-  }
-  
+
   .example-header-image {
     /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
     background-size: cover;
@@ -26,20 +23,19 @@
     margin-bottom: 8px;
   }
  
-  .image>img{
+  /* .image>img{
     padding-left: 100px;
     width: 50%;
     height: 300px;
-  }
-  .image>h1{
+  } */
+  /* .image>h1{
     padding-left: 100px;
     padding-top: 20px;
     text-align: left;
     font-weight: bold;
     font-size: 50px;
     font-family: cursive;
-  }
-
+  } */
 
 
 
@@ -60,8 +56,39 @@
   #about img
 {
     /* border: 5px solid rgb(255, 176, 59); */
-    border-radius: 2px;
+    border-radius: 8px;
 }
 .section-padding{
   padding: 60px 0px;
+}
+
+.img-responsive-rest{
+  height: 200px;
+}
+
+
+
+
+/* Adding more css */
+
+.section-padding{
+  background-color: #FFB03B;
+}
+
+input.form-control {
+  background-color: rgba(0,0,0,.04);
+  height: 51px;
+  border-bottom: solid rgb(84, 83, 83) 0.1px;
+}
+
+.img-fluid{
+  border-radius: 15px;
+}
+
+.btn-submit{
+  /* display:contents; */
+  background-color: #FFB03B;
+}
+.display-menu{
+  padding-top: 45px;
 }
