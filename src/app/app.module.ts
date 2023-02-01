@@ -45,6 +45,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AdminGuard } from './guards/admin.guard';
 import { UserService } from './services/user.service';
 import { FilterPipe } from './filter-pipe/filter.pipe';
+import { OrderPlacedNotificationComponent } from './order-placed-notification/order-placed-notification.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { FilterPipe } from './filter-pipe/filter.pipe';
     FooterComponent,
     CheckoutComponent,
     FilterPipe,
+    OrderPlacedNotificationComponent,
 
 
 

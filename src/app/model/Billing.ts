@@ -1,17 +1,17 @@
 export class Billing  {
 
-    NameOnCard: string;
+    nameOnCard: string;
     cardNumber: number;
     expiryMonth: string;
     expiryYear: string;
-    CVV: number;
+    cvv: number;
     
     constructor(){
-        this.NameOnCard = "";
+        this.nameOnCard = "";
         this.cardNumber = 0;
         this.expiryMonth = "";
         this.expiryYear = "";
-        this.CVV = 0;
+        this.cvv = 0;
      
       
     }

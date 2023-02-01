@@ -66,7 +66,10 @@ export class UserService {
     return this.HttpClient.get("  http://localhost:9000/api/v3/getCheckoutDetails/" + email)
   }
 
+getCurrentcheckoutDetails(orderId:number){
+  return this.HttpClient.get("http://localhost:9000/api/v3/getCurrentCheckoutDetail/" + orderId)
 
+}
   public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([])
 
