@@ -73,11 +73,10 @@ export class NavigationBarComponent {
         });
     }
 
-    this.userService.getCart(this.email).subscribe(responce => {
+    this.userService.getProducts().subscribe(responce => {
       this.cartData = responce;
       this.cartItemsCounter = this.cartData.length
 
-      console.log(responce)
     })
   }
 

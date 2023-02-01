@@ -142,7 +142,7 @@ export class ViewMenuComponent implements OnInit {
   public searchTerm1 !: string;
   searchKey:string ="";
   searchKey2:string ="";
-
+email:any
   constructor(private logInServ:LoginService, private adminService: AdminService, private router: ActivatedRoute,
      private _snackBar: MatSnackBar, private userService: UserService, private authService: AuthserviceService,
      private _formBuilder:FormBuilder) { }
@@ -150,6 +150,8 @@ export class ViewMenuComponent implements OnInit {
 
 
   ngOnInit(): void {
+     this.email = this.authService.getEmail();
+
     this.adminService.getCurrentRestaurant(this.restId).subscribe({
       next: restaurentData => {
         this.restaurents = restaurentData;
@@ -211,7 +213,6 @@ export class ViewMenuComponent implements OnInit {
     })
   }
 
-  email = this.authService.getEmail();
 
 
 
@@ -240,7 +241,7 @@ export class ViewMenuComponent implements OnInit {
     } else {
       alert("already in cart")
     }
-        window.location.reload();
+        // window.location.reload();
 
   }
 

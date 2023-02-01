@@ -21,6 +21,9 @@ export class OrderPlacedNotificationComponent implements OnInit {
         this.checkoutData = result;
         console.log(this.checkoutData)
       });
-  }
 
+  }
+loadData(){
+  window.location.reload();
+}
 }

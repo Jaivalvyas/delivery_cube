@@ -1,6 +1,6 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <span ><a routerLink="/home">Delivery Cube</a></span>
+    <span><a routerLink="/home">Delivery Cube</a></span>
     <!-- <h2><a mat-button >Home</a></h2> -->
     <h2>
       <a mat-button routerLink="/admin" *ngIf="isAdmin">AdminDashBoard</a>
@@ -15,23 +15,39 @@
       ><mat-icon>add_shopping_cart</mat-icon>
       <div class="badge bg-danger">{{ cartItemsCounter }}</div>
     </a>
-   <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon color="accent">manage_accounts</mat-icon>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon color="accent" *ngIf="!isLoggedIn()">manage_accounts</mat-icon>
+      <mat-icon color="accent" *ngIf="isLoggedIn()">
+        <div class="logo-image" *ngIf="dbImage">
+          <img [src]="dbImage" class="img-fluid" />
+        </div></mat-icon>
     </button>
-     <mat-menu #menu="matMenu">
+    <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <a mat-button color="accent" (click)="openDialog()"
-          >New User?? Sign Up</a>
-        
+          >New User?? Sign Up</a
+        >
       </button>
-      <button
-      mat-menu-item
-      *ngIf="isLoggedIn()"
-      routerLink="/UserProfile">
-      <a mat-button color="accent">Your Profile</a>
-    </button></mat-menu>
+      <button mat-menu-item *ngIf="isLoggedIn()" routerLink="/UserProfile">
+        <a mat-button color="accent">Your Profile</a>
+      </button>
+      <button mat-menu-item *ngIf="isUser" routerLink="/owner">
+        <a mat-button color="accent">Your Orders</a>
+      </button>
+      <a
+      mat-button
+      *ngIf="!isLoggedIn()"
+      (click)="openLoginDialog()"
+      color="accent"
+      ><mat-icon>login</mat-icon>
+    </a>
+    <button *ngIf="isLoggedIn()" mat-button color="warn" (click)="logOut()">Logout
+      <!-- <mat-icon>logout</mat-icon> -->
+    </button>
+      </mat-menu
+    >
 
-      <!--<button
+    <!--<button
         mat-menu-item
         *ngIf="isLoggedIn()"
         routerLink="/UserProfile">
@@ -44,16 +60,10 @@
         <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
 
         <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a> -->
-        <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> --> 
+    <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> -->
 
-        <a  mat-button *ngIf="!isLoggedIn()" (click)="openLoginDialog()"  color="accent"><mat-icon>login</mat-icon>
-        </a>
-        <button  *ngIf="isLoggedIn()"  mat-button color="warn" (click)="logOut()"><mat-icon>logout</mat-icon>
-        </button>
-        
-        <div class="logo-image" *ngIf=dbImage >
-          <img [src]="dbImage" class="img-fluid">
-        </div>
+  
+
   </mat-toolbar-row>
 </mat-toolbar>
 <!--     

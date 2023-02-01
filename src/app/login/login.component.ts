@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
         }
         else if (role === "User") {
           console.log(role);
-          this.route.navigate(["/user"]);
+          this.route.navigate(["/home"]);
         }
       },
       (error) => {
