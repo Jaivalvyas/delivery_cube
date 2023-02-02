@@ -66,7 +66,7 @@ export class UserService {
     return this.HttpClient.get("http://localhost:9000/api/v2/getbycuisine/" +cuisine)
   }
   getCheckOutHistory(email: string) {
-    return this.HttpClient.get("  http://localhost:9000/api/v3/getCheckoutDetails/" + email)
+    return this.HttpClient.get("http://localhost:9000/api/v3/getCheckoutDetails/" + email)
   }
 
 getCurrentcheckoutDetails(orderId:number){

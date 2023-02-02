@@ -5,7 +5,7 @@
     <h2>
       <a mat-button routerLink="/admin" *ngIf="isAdmin">AdminDashBoard</a>
     </h2>
-    <h2><a mat-button routerLink="/user" *ngIf="isUser">UserDashBord</a></h2>
+    <!-- <h2><a mat-button routerLink="/user" *ngIf="isUser">UserDashBord</a></h2> -->
 
     <span class="example-spacer"></span>
     <a mat-button color="accent" routerLink="view-favorite" *ngIf="isLoggedIn()"
@@ -31,7 +31,7 @@
       <button mat-menu-item *ngIf="isLoggedIn()" routerLink="/UserProfile">
         <a mat-button color="accent">Your Profile</a>
       </button>
-      <button mat-menu-item *ngIf="isUser" routerLink="/owner">
+      <button mat-menu-item *ngIf="isUser" routerLink="/OrderHistory">
         <a mat-button color="accent">Your Orders</a>
       </button>
       <a
@@ -41,7 +41,7 @@
       color="accent"
       ><mat-icon>login</mat-icon>
     </a>
-    <button *ngIf="isLoggedIn()" mat-button color="warn" (click)="logOut()">Logout
+    <button *ngIf="isLoggedIn()" mat-menu-item color="accent" (click)="logOut()"><a mat-button color="accent">Logout</a>
       <!-- <mat-icon>logout</mat-icon> -->
     </button>
       </mat-menu

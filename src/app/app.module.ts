@@ -46,6 +46,8 @@ import { AdminGuard } from './guards/admin.guard';
 import { UserService } from './services/user.service';
 import { FilterPipe } from './filter-pipe/filter.pipe';
 import { OrderPlacedNotificationComponent } from './order-placed-notification/order-placed-notification.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -72,6 +74,7 @@ import { OrderPlacedNotificationComponent } from './order-placed-notification/or
     CheckoutComponent,
     FilterPipe,
     OrderPlacedNotificationComponent,
+    OrderHistoryComponent,
 
 
 
@@ -99,8 +102,8 @@ import { OrderPlacedNotificationComponent } from './order-placed-notification/or
     FormsModule,
     MatMenuModule,
     MatTabsModule,
-    MatAutocompleteModule
-
+    MatAutocompleteModule,
+    MatExpansionModule
   ],
   providers: [
     

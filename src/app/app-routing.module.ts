@@ -21,6 +21,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
 import { RoleGuard } from './guards/role.guard';
 import { OrderPlacedNotificationComponent } from './order-placed-notification/order-placed-notification.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   {
@@ -105,6 +106,9 @@ const routes: Routes = [
     path: 'UserProfile', component: UserProfileComponent,
     canActivate: [RoleGuard]
 
+  },
+  {
+    path: 'OrderHistory', component: OrderHistoryComponent,
   },
   {
     path: '**', component: ForbiddenComponent
