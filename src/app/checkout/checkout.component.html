@@ -151,7 +151,7 @@
         <form action=" ">
           <div class="row">
             <div class="col">
-              <h3 class="title">payment</h3>
+              <h3 class="title">Payment</h3>
 
               <div class="inputBox">
                 <span>cards accepted :</span>
@@ -162,9 +162,9 @@
                 <input
                   type="text"
                   placeholder="mr. john deo"
-                  name="NameOnCard"
+                  name="nameOnCard"
                   [(ngModel)]="cardDetails.nameOnCard"
-                />
+                />  
               </div>
               <div class="inputBox">
                 <span>credit card number :</span>
@@ -201,7 +201,7 @@
                   <input
                     type="text"
                     placeholder="1234"
-                    name="CVV"
+                    name="cvv"
                     [(ngModel)]="cardDetails.cvv"
                   />
                 </div>
@@ -212,8 +212,8 @@
       </div>
 
       <div>
-        <button mat-button color="warn" matStepperPrevious>Back</button>
-        <button mat-button color="primary" matStepperNext>Next</button>
+        <button mat-button color="warn" matStepperPrevious >Back</button>
+        <button mat-button color="primary" matStepperNext  >Next</button>
       </div>
     </form>
   </mat-step>
@@ -226,7 +226,6 @@
 
       <button
       routerLink="/notification/{{ checkoutNumber }}"
-
         class="btn btn-sm bg-dark text-white px-lg-5 px-3"
         (click)="doCheckOut()"
       >

@@ -230,9 +230,10 @@ email:any
       this.userService.addToCart(menu);
       console.log(menu)
       this.userService.addMenuToCart(menu, this.email).subscribe({
-        next(x) { alert("added to cart") },
+        next(x) {  },
         error(errormsg) { alert("something goes wrong") },
       });
+
 
       this._snackBar.open('added!!', 'success', {
         duration: 5000,
@@ -241,7 +242,6 @@ email:any
     } else {
       alert("already in cart")
     }
-        // window.location.reload();
 
   }
 

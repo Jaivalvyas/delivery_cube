@@ -42,8 +42,12 @@
                       <h6>State</h6>
                       <p class="text-muted">{{userData.state}}</p>
                     </div>
+                    <div class="col-4 mb-3">
+                      <h6>Zip Code</h6>
+                      <p class="text-muted">{{userData.zip}}</p>
+                    </div>
                   </div>
-                  <button mat-menu-item routerLink="/edit-profile/{{ email }}">Edit Profile</button>
+                  <button mat-menu-item routerLink="/edit-profile/{{ email }}">Edit Profile<mat-icon>edit</mat-icon></button>
                 </div>
               </div>
             </div>

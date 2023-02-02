@@ -95,7 +95,7 @@ export class AddToCartComponent implements OnInit {
     console.log(this.orderToPlaced);
     this.cartService.postOrder(this.orderToPlaced).subscribe({
 
-      next(x) { alert("order is  placed") },
+      next(x) {  },
       
       error(errormsg) { },
       
@@ -103,11 +103,7 @@ export class AddToCartComponent implements OnInit {
 
     // this.cartService.deleteCart(this.email2).subscribe()
 
-    this._snackBar.open('Congrats!!You order has been placed!!', 'success', {
-      duration: 1000,
-      panelClass: ['mat-toolbar', 'mat-primary']
-    });
-
+   
   }
 
 }
