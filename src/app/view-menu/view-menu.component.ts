@@ -246,7 +246,6 @@ email:any
   }
 
 
-
   isAdmin: boolean = this.logInServ.roleMatch("Admin");
   isUser: boolean = this.logInServ.roleMatch("User");
 
