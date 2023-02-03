@@ -1,3 +1,5 @@
+body { font-family: arial; }
+
 .sidenav-container {
   height: 100%;
 }
@@ -17,7 +19,7 @@
 }
 a{
   text-decoration: none;
-  color: #000;
+  color: #FFB03B;
   margin-left: 10px;
 }
 
@@ -36,4 +38,13 @@ a{
   border-radius: 50%;
   overflow: hidden;
   margin-top: -6px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+  position: fixed;
+  background-color: rgb(224, 222, 222);
+}
+
+.logo-name{
+  font-size: 25px;
 }

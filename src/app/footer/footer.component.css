@@ -2,17 +2,21 @@
 .footer-area{
 	padding-top: 50px;
 	padding-bottom: 0px;
+	font-family: arial;
+	padding: 13px;
+	padding-top: 10px;
 }
 .bg-f{
 	/* background-image: url("../images/footer-bg.jpg"); */
 	background-attachment: scroll;
 	background-clip: initial;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(224, 222, 222);
 	background-origin: initial;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
+	padding-top: 30px;
 }
 .bg-f::before {
     /* background: #010101; */
@@ -84,7 +88,7 @@
 }
 
 .subscribe_form .submit {
-    background-color: #d0a772;
+    background-color: #FFB03B;
     color: black;
     font-size: 16px;
     font-weight: 600;

@@ -67,6 +67,7 @@ h1{
        font-size: 20px;
        text-decoration: black;
        padding-left: 5px;
+       font-weight: 500;
       }
      
      h1{
@@ -172,7 +173,7 @@ h1{
 
     .sub-para{
       /* font-size: 25px; */
-      font-weight: 100;
+      font-weight: 400;
     }
 
     /* mat-icon{
@@ -181,4 +182,10 @@ h1{
 
     .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent{
       background-color: white;
+    }
+
+    .restaurantName{
+      font-weight: 500;
+      font-family: arial;
+      font-size: 34px;
     }
