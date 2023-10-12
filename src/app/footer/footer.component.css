@@ -1,135 +1,133 @@
+/* Footer Styles */
 
-.footer-area{
-	padding-top: 50px;
-	padding-bottom: 0px;
-	font-family: arial;
-	padding: 13px;
-	padding-top: 10px;
-}
-.bg-f{
-	/* background-image: url("../images/footer-bg.jpg"); */
-	background-attachment: scroll;
-	background-clip: initial;
-	background-color: rgb(224, 222, 222);
-	background-origin: initial;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	padding-top: 30px;
-}
-.bg-f::before {
-    /* background: #010101; */
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-	opacity: 0.8;
+.footer-area {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
 }
 
-.footer-area .container{
-	position: relative;
-	z-index: 1;
-}
-.footer-area h3{
-	color: black;
-	text-transform: uppercase;
-	font-size: 24px;
-	border-bottom: 1px dashed rgba(207, 166, 113, 0.5);
-	margin-bottom: 10px;
-}
-.footer-area p{
-	font-size: 15px;
-	color:black;
-	margin: 0;
-	padding-bottom: 10px;
+.footer-area h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.footer-area p.lead{
-	font-size: 19px;
-	color: black;
-	margin-bottom: 15px;
+.footer-area p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    margin-bottom: 10px;
 }
-.footer-area p.lead a{
-	color: black;
-	margin-bottom: 15px;
+
+.footer-area p.lead {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 15px;
 }
-.footer-area p.lead a:hover{
-	color: #d0a772;
+
+.footer-area p.lead a {
+    color: #333;
+    text-decoration: none;
 }
-.footer-area p a{
-	font-size: 18px;
-	color: black;
+
+.footer-area p.lead a:hover {
+    color: #FFB03B;
 }
-.footer-area p a:hover{
-	color: #d0a772;
+
+.footer-area p a {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #FFB03B;
 }
 
 .subscribe_form {
-    display: block;
     text-align: center;
-    padding: 5px 0;
+    margin-top: 20px;
 }
 
 .subscribe_form .form_input {
-    display: block;
-    background-color: rgba(0,0,0,0.7);
-    color: black;
-    border: none;
-    font-size: 19px;
-    line-height: 50px;
-    padding: 0 10px;
-    float: left;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding: 10px;
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
 }
 
-.subscribe_form .submit {
+.subscribe_form .form_input::placeholder {
+    color: #999;
+}
+
+.subscribe_form .form_input:focus {
+    border-color: #FFB03B;
+    outline: none;
+}
+
+.btn  {
     background-color: #FFB03B;
-    color: black;
+    color: #333;
     font-size: 16px;
     font-weight: 600;
-    line-height: 50px;
-    display: inline-block;
-    padding: 0 10px;
-    float: left;
-    width: 100%;
-	border: none;
-	cursor: pointer;
-    transition: all 0.5s ease-in-out;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
-.subscribe_form .submit:hover{
-	/* background: #010101; */
+
+.subscribe_form .submit:hover {
+    background-color: #333;
+    color: #fff;
 }
 
 .f-social {
-    padding-bottom: 10px;
-    margin: 0px;
     margin-top: 20px;
+    list-style: none;
+    padding: 0;
 }
+
+.f-social li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.f-social li:last-child {
+    margin-right: 0;
+}
+
 .f-social li a {
-    font-size: 25px;
-    color: black;
-	margin-right: 10px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
-.copyright{
-	margin-top: 20px;
-	position: relative;
-	display: block;
-	
-	border-top: 1px dashed rgba(207, 166, 113);
-	padding: 30px 0;
-	z-index: 1;
+.f-social li a:hover {
+    color: #FFB03B;
 }
 
-.copyright .company-name{
-	font-size: 16px;
-	text-align: center;
+.copyright {
+    margin-top: 40px;
+    text-align: center;
 }
-.copyright .company-name a{
-	font-size: 16px;
+
+.company-name {
+    font-size: 16px;
+    color: #666;
+}
+
+.company-name a {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+}
+
+.company-name a:hover {
+    color: #FFB03B;
 }

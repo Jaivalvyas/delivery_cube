@@ -1,40 +1,49 @@
-
 <section id="banner">
-    <div class="bg-color">
-      <div class="container">
-        <div class="row">
-          <div class="inner text-center">
-            <h1 class="logo-name">Delivery Cube</h1>
-            <h2>We Deliver Food To Fit Your Lifestyle & Health.</h2>
-          </div>
-          <div class="input-group search-btn-div">
+  <div class="bg-color">
+    <div class="container">
+      <div class="row">
+        <div class="inner text-center">
+          <h1 class="logo-name">Delivery Cube</h1>
+          <h2>We Deliver Food To Fit Your Lifestyle & Health.</h2>
+        </div>
+        <div class="input-group search-btn-div">
           <form [formGroup]="stateForm">
             <mat-form-field class="example-full-width">
               <mat-label>Search By Location</mat-label>
-              <input type="text"
-                     matInput
-                     formControlName="stateGroup"
-                     required
-                     [(ngModel)]="searchTerm1" (keyup)="search1($event)"  class="form-control input-sm"
-                     [matAutocomplete]="autoGroup">
-                <mat-autocomplete #autoGroup="matAutocomplete">
-                  <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
-                    <mat-option *ngFor="let name of group.names" [value]="name">
-                      {{name}}
-                    </mat-option>
+              <input
+                type="text"
+                matInput
+                formControlName="stateGroup"
+                required
+                [(ngModel)]="searchTerm1"
+                (keyup)="search1($event)"
+                class="form-control input-sm"
+                [matAutocomplete]="autoGroup"
+              />
+              <mat-autocomplete #autoGroup="matAutocomplete">
+                <mat-optgroup
+                  *ngFor="let group of stateGroupOptions | async"
+                  [label]="group.letter"
+                >
+                  <mat-option *ngFor="let name of group.names" [value]="name">
+                    {{ name }}
+                  </mat-option>
                 </mat-optgroup>
               </mat-autocomplete>
             </mat-form-field>
-          </form> <span class="input-group-btn" 
-          style="width:0px;"></span>
-          <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Restaurent">
-        </div>          
-          
+          </form>
+          <span class="input-group-btn" style="width: 0px"></span>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="searchTerm"
+            (keyup)="search($event)"
+            placeholder="Search Restaurent"
+          />
         </div>
       </div>
     </div>
-  </section>
-
-  <app-admin-view></app-admin-view>
-  <app-footer></app-footer>
-
+  </div>
+</section>
+<app-admin-view></app-admin-view>
+<app-footer></app-footer>

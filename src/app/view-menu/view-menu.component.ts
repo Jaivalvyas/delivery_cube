@@ -10,7 +10,7 @@ import { LoginService } from '../services/login.service';
 import { UserService } from '../services/user.service';
 export interface StateGroup {
   letter: string;
-  names: string[];
+  cuisines: string[];
 }
 export const _filter = (opt: string[], value: string): string[] => {
   const filterValue = value.toLowerCase();
@@ -32,101 +32,19 @@ export class ViewMenuComponent implements OnInit {
   stateGroups: StateGroup[] = [
     {
       letter: 'A',
-      names: ['Alabama', 'Alaska', 'Arizona', 'Arkansas'],
-    },
-    {
-      letter: 'B',
-      names: ['Biryani','Burger'],
+      cuisines: ['American', 'Asian', 'African'],
     },
     {
       letter: 'C',
-      names: ['Chinese', 'Columbian'],
-    },
-    {
-      letter: 'D',
-      names: ['Delaware'],
-    },
-    {
-      letter: 'F',
-      names: ['Florida'],
-    },
-    {
-      letter: 'G',
-      names: ['Georgia'],
-    },
-    {
-      letter: 'H',
-      names: ['Hyderabad'],
+      cuisines: ['Chinese', 'Continental'],
     },
     {
       letter: 'I',
-      names: ['Idaho', 'Illinois', 'Indiana', 'Iowa'],
-    },
-    {
-      letter: 'K',
-      names: ['Kansas', 'Kentucky'],
-    },
-    {
-      letter: 'L',
-      names: ['Louisiana'],
+      cuisines: ['Indian', 'Italian', 'South Indian'],
     },
     {
       letter: 'M',
-      names: [
-        'Maine',
-        'Maryland',
-        'Massachusetts',
-        'Michigan',
-        'Minnesota',
-        'Mississippi',
-        'Missouri',
-        'Montana',
-      ],
-    },
-    {
-      letter: 'N',
-      names: [
-        'Nebraska',
-        'Nevada',
-        'New Hampshire',
-        'New Jersey',
-        'New Mexico',
-        'New York',
-        'North Carolina',
-        'North Dakota',
-      ],
-    },
-    {
-      letter: 'O',
-      names: ['Ohio', 'Oklahoma', 'Oregon'],
-    },
-    {
-      letter: 'P',
-      names: ['Pizza'],
-    },
-    {
-      letter: 'R',
-      names: ['Rhode Island'],
-    },
-    {
-      letter: 'S',
-      names: ['South Indian', 'South Dakota', 'SI'],
-    },
-    {
-      letter: 'T',
-      names: ['Tennessee', 'Texas'],
-    },
-    {
-      letter: 'U',
-      names: ['Uppal'],
-    },
-    {
-      letter: 'V',
-      names: ['Vermont', 'Virginia'],
-    },
-    {
-      letter: 'W',
-      names: ['Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+      cuisines: ['Mexican', 'Mediterranean'],
     },
   ];
 
@@ -189,8 +107,8 @@ email:any
     private _filterGroup(value: any): StateGroup[] {
       if (value) {
         return this.stateGroups
-          .map(group => ({letter: group.letter, names: _filter(group.names, value)}))
-          .filter(group => group.names.length > 0);
+          .map(group => ({letter: group.letter, cuisines: _filter(group.cuisines, value)}))
+          .filter(group => group.cuisines.length > 0);
       }
   
       return this.stateGroups;

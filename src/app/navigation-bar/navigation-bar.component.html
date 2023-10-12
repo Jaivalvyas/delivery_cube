@@ -5,7 +5,7 @@
     <h2>
       <a mat-button routerLink="/admin" *ngIf="isAdmin">AdminDashBoard</a>
     </h2>
-    <!-- <h2><a mat-button routerLink="/user" *ngIf="isUser">UserDashBord</a></h2> --> 
+    <h2><a mat-button routerLink="/user" *ngIf="isUser">UserDashBord</a></h2>
 
     <span class="example-spacer"></span>
     <a mat-button color="accent" routerLink="view-favorite" *ngIf="isLoggedIn()"
@@ -47,25 +47,5 @@
         >
       </button>
     </mat-menu>
-
-    <!--<button
-        mat-menu-item
-        *ngIf="isLoggedIn()"
-        routerLink="/UserProfile">
-        <a mat-button color="accent">Edit Your Profile</a>
-      </button>
-    </mat-menu>
-
-        <span class="example-spacer"></span>
-        <a mat-button color="accent"routerLink="view-favorite" *ngIf="isLoggedIn()"><mat-icon>favorite</mat-icon></a>
-        <a mat-button color="accent"routerLink="add-cart" *ngIf="isLoggedIn()"><mat-icon>add_shopping_cart</mat-icon></a>
-
-        <a mat-button color="accent" (click)="openDialog()"><mat-icon>manage_accounts</mat-icon></a> -->
-    <!-- <a mat-button color="accent" (click)="openLoginDialog()">Login</a> -->
   </mat-toolbar-row>
 </mat-toolbar>
-<!--     
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-
